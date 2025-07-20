@@ -92,6 +92,11 @@
                 <h2 class="text-xl font-bold text-slate-900">Context and Adaptive Systems</h2>
                 <p class="text-slate-500 mt-2">Kontext in HCI, adaptive Systeme und kontextuelle Integrität.</p>
             </div>
+            <!-- Neuer Abschnitt für Projekte -->
+            <div data-topic="projects" class="topic-card bg-white p-6 rounded-xl shadow-md cursor-pointer border-b-4 border-amber-600">
+                <h2 class="text-xl font-bold text-slate-900">Meine Projekte</h2>
+                <p class="text-slate-500 mt-2">Praktische Anwendungen der IUI-Konzepte.</p>
+            </div>
         </nav>
 
         <!-- Dynamic Content Area -->
@@ -572,7 +577,7 @@
                         <h4 class="font-bold text-lg text-amber-600">Herausforderungen</h4>
                         <ul class="space-y-2 list-disc list-inside text-slate-600 mt-2">
                             <li><strong>Cold-start-Problem:</strong> Keine Informationen für neue Nutzer/Objekte oder neue Items. Lösung: Hybridansätze, Initialinteraktionen (Fragebögen), Nutzung von Kontext-/demographischen Daten.</li>
-                            <li><strong>Sparse Ratings Problem:</strong> Bei großen Plattformen oft nur wenige Bewertungen pro Nutzer/Objekt, erschwert Berechnung von Ähnlichkeiten.</li>
+                            <li><strong>Sparse Ratings Problem:</strong> Wenige Bewertungen pro Nutzer/Objekt erschweren Ähnlichkeitsberechnungen.</li>
                             <li><strong>Item Ratings erhalten:</strong> Explizit (Fragebögen, Bewertungen) oder Implizit (Nutzung von Items, Teilen, Entfernen von Items).</li>
                         </ul>
                     </div>
@@ -638,7 +643,7 @@
                         <ul class="space-y-2 list-disc list-inside text-slate-600 mt-2">
                             <li><strong>Surrogate-Modelle:</strong> Einfachere Modelle, die das Verhalten eines komplexen Modells annähern und erklärbar sind.</li>
                             <li><strong>Lokale Störungen:</strong> Veränderung von Eingaben (z.B. LIME) zur Beobachtung von Effekten auf die Vorhersage.</li>
-                            <li><strong>Propagationsbasierte Ansätze:</strong> Nutzen die interne Struktur des Modells (z.B. Neuronengewichte) zur Erklärung.</li>
+                            <li><strong>Propagationsbasierte Ansätze:</strong> Nutzung der Modellstruktur zur Erklärung.</li>
                             <li><strong>Meta-Erklärungen:</strong> Erklärungen über die Erklärungsmethoden selbst.</li>
                         </ul>
                     </div>
@@ -666,7 +671,7 @@
                             <li>AlphaGo: Unerwartete, schwer erklärbare Züge.</li>
                             <li>Clever Hans: Modell basiert Entscheidungen auf irrelevanten Mustern (z.B. Hintergrund statt Objekt).</li>
                             <li><strong>LIME:</strong> Methode für lokale erklärbare Vorhersagen (zeigt, welche Teile der Eingabe für eine einzelne Vorhersage wichtig waren).</li>
-                            <li>Visualisierungen gelernter Repräsentationen (z.B. Neuronale Netzwerke im TensorFlow Playground) und einzelner Vorhersagen (Heat Maps).</li>
+                            <li>Visualisierungen gelernter Repräsentationen und einzelner Vorhersagen (Heat Maps).</li>
                         </ul>
                     </div>
                 </div>
@@ -744,6 +749,25 @@
                 </div>
             </section>
 
+            <!-- Projects Content (New Section) -->
+            <section id="projects-content" class="content-section bg-white p-6 md:p-8 rounded-xl shadow-lg">
+                <h2 class="text-3xl font-bold mb-6 text-slate-900">Meine Projekte</h2>
+                <p class="mb-8 text-slate-600">Dieser Abschnitt präsentiert ausgewählte Projekte, die praktische Anwendungen der in den Vorlesungen behandelten IUI-Konzepte demonstrieren. Klicke auf ein Projekt, um mehr über seine Ziele, Technologien und die angewandten IUI-Prinzipien zu erfahren.</p>
+                
+                <div id="project-list" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Projektkarten werden hier dynamisch oder statisch hinzugefügt -->
+                </div>
+
+                <div id="project-detail" class="mt-8 pt-8 border-t border-slate-200 hidden">
+                    <h3 class="text-2xl font-bold mb-4 text-slate-900" id="project-detail-title"></h3>
+                    <p class="text-slate-600 mb-4" id="project-detail-description"></p>
+                    <h4 class="font-bold text-lg text-amber-600 mb-2">Angewandte Konzepte</h4>
+                    <ul class="list-disc list-inside text-slate-700 mb-4" id="project-detail-concepts"></ul>
+                    <h4 class="font-bold text-lg text-amber-600 mb-2">Technologien</h4>
+                    <p class="text-slate-700" id="project-detail-tech"></p>
+                </div>
+            </section>
+
         </main>
     </div>
 
@@ -751,6 +775,12 @@
         document.addEventListener('DOMContentLoaded', () => {
             const navCards = document.querySelectorAll('#main-nav .topic-card');
             const contentSections = document.querySelectorAll('#content-area .content-section');
+            const projectList = document.getElementById('project-list');
+            const projectDetail = document.getElementById('project-detail');
+            const projectDetailTitle = document.getElementById('project-detail-title');
+            const projectDetailDescription = document.getElementById('project-detail-description');
+            const projectDetailConcepts = document.getElementById('project-detail-concepts');
+            const projectDetailTech = document.getElementById('project-detail-tech');
 
             // Initial: Hide all content sections
             contentSections.forEach(section => {
@@ -774,8 +804,87 @@
                         }
                     });
 
+                    // Hide project detail when switching topics
+                    projectDetail.classList.add('hidden');
+
                     const contentArea = document.getElementById('content-area');
                     contentArea.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                });
+            });
+
+            // Project Data
+            const projectsData = [
+                {
+                    id: 'llm-writing-assistant',
+                    title: 'LLM Writing Assistant',
+                    short_description: 'Entwicklung eines KI-basierten Schreibassistenten zur Textoptimierung.',
+                    description: 'Dieses Projekt umfasste die Entwicklung einer Fullstack-Webanwendung, die einen lokalen Large Language Model (LLM) über Ollama integriert. Die Anwendung bietet Funktionen wie Grammatikprüfung, Paraphrasierung, Korrekturlesen, Zitierhilfe und Textzusammenfassung. Besondere Herausforderungen waren die Optimierung der LLM-Ressourcennutzung auf begrenzter Hardware und die präzise Steuerung des Modells durch Prompt Engineering.',
+                    concepts: [
+                        'Interacting with LLMs: Prompt Engineering (Zero-Shot, Few-Shot, Chain-of-Thought), System Prompts.',
+                        'Generative AI: Potenziale der Textgenerierung, Herausforderungen bei Kontrolle und Steuerung.',
+                        'Voice User Interfaces: (Indirekt) Konzepte der Mensch-KI-Interaktion und Nutzerführung.',
+                        'Context and Adaptive Systems: (Indirekt) Anpassung der KI-Antworten an den Kontext des Nutzers.'
+                    ],
+                    technologies: 'Python (FastAPI, Streamlit, python-dotenv), Ollama (Llama 3.2:latest, Phi-3:mini), HTML/CSS (Tailwind CSS), JavaScript.'
+                },
+                {
+                    id: 'generio-3d-generator',
+                    title: 'Generio.ai 3D Model Generator',
+                    short_description: 'Aufbau einer App zur 3D-Modellgenerierung aus Skizzen und Text via externer KI-API.',
+                    description: 'Dieses Projekt konzentriert sich auf die Entwicklung eines Frontends mit einem interaktiven Zeichenbereich (Sketch Canvas) und eines Backends, das als Proxy zur externen GENERIO-API dient. Es demonstriert die Generierung von 3D-Modellen aus 2D-Skizzen und Text-Prompts in einem zweistufigen API-Prozess (Bild-Upload als Asset, dann Modellgenerierung aus Asset). Herausforderungen umfassten die API-Authentifizierung und das Debugging der komplexen API-Kommunikation.',
+                    concepts: [
+                        'Generative AI: Potenziale der 3D-Modellgenerierung, Nutzung externer KI-APIs.',
+                        'Tracking Users\' Bodies: (Indirekt) Erfassung von 2D-Zeichnungsdaten als Eingabe für die KI.',
+                        'Gestures: (Indirekt) Zeichnen als Form der Interaktion.',
+                        'Context and Adaptive Systems: (Indirekt) Anpassung der Anwendung an Nutzer-Input (Skizze, Prompt).'
+                    ],
+                    technologies: 'Python (FastAPI, Streamlit, requests, python-dotenv, streamlit-drawable-canvas), HTML/CSS (Tailwind CSS), JavaScript, GENERIO-API.'
+                },
+                {
+                    id: 'magic-wand-duel',
+                    title: 'Magic Wand Duel (Gestenerkennung)',
+                    short_description: 'Ein Spiel zur Erkennung von Zaubergesten mittels physikalischer Sensordaten und Machine Learning.',
+                    description: 'Dieses Projekt implementiert ein "Magic Wand Duel"-Spiel, bei dem Nutzer Zaubergesten mit einem physikalischen Sensorstab (Arduino-basiert) ausführen. Ein Machine Learning Modell erkennt diese Gesten, um den Ausgang eines Duells zu bestimmen. Die Architektur umfasst einen Datenrekorder für Sensordaten, eine Machine Learning Pipeline zur Gestenerkennung und einen Flask-Server, der die Spielregeln und den Duellverlauf verwaltet.',
+                    concepts: [
+                        'Tracking Users\' Bodies: Direkte Anwendung von Inertial Tracking (Accelerometer, Gyroskope) zur Erfassung von Körperbewegungen/Gesten. Nutzung von Sensorkoordinatensystemen zur Datenaufnahme.',
+                        'Gestures: Implementierung eines Gestenerkenners für dynamische Gesten (Zaubergesten). Anwendung von Techniken zur Gestenerkennung wie Feature Extraction (Mittelwert, Standardabweichung, Min/Max der Sensordaten) und Klassifikation. Das Projekt definiert ein Gestenvokabular (z.B. "Stein", "Schere", "Papier").',
+                        'Interacting with LLMs: (Indirekt) Das Projekt ist ein Beispiel für die Entwicklung einer neuartigen Benutzerinteraktion, die über traditionelle GUIs hinausgeht und physikalische Gesten als primäre Eingabemodalität nutzt.',
+                        'Explainable AI (XAI): Die Visualisierung von Feature-Räumen (Nearest Neighbors) kann als eine Form der lokalen Interpretierbarkeit oder der Visualisierung gelernter Repräsentationen betrachtet werden, um die Entscheidungen des ML-Modells nachvollziehbarer zu machen.',
+                        'Context and Adaptive Systems: (Indirekt) Das System passt sich an die physische Geste des Benutzers an, wobei der Mensch als primärer Kontext für die Interaktion dient.'
+                    ],
+                    technologies: 'Python (NumPy, Pandas, scikit-learn - RandomForestClassifier, NearestNeighbors, StandardScaler, joblib), Flask (Webserver), Tkinter (GUI für Recorder), Serial Communication (Arduino), Matplotlib (Visualisierung).'
+                }
+            ];
+
+            // Dynamisches Hinzufügen von Projektkarten
+            projectsData.forEach(project => {
+                const projectCard = document.createElement('div');
+                projectCard.className = 'bg-slate-50 p-4 rounded-lg shadow-sm border border-slate-200 hover:shadow-md transition-shadow cursor-pointer';
+                projectCard.dataset.projectId = project.id;
+                projectCard.innerHTML = `
+                    <h3 class="text-xl font-bold text-slate-900">${project.title}</h3>
+                    <p class="text-slate-600 mt-2">${project.short_description}</p>
+                    <p class="text-sm text-amber-600 mt-2">Relevante Themen: ${project.concepts.map(c => c.split(':')[0]).join(', ')}</p>
+                `;
+                projectList.appendChild(projectCard);
+
+                projectCard.addEventListener('click', () => {
+                    const selectedProject = projectsData.find(p => p.id === projectCard.dataset.projectId);
+                    if (selectedProject) {
+                        projectDetailTitle.textContent = selectedProject.title;
+                        projectDetailDescription.textContent = selectedProject.description;
+                        projectDetailTech.textContent = selectedProject.technologies;
+                        
+                        projectDetailConcepts.innerHTML = ''; // Clear previous concepts
+                        selectedProject.concepts.forEach(concept => {
+                            const li = document.createElement('li');
+                            li.textContent = concept;
+                            projectDetailConcepts.appendChild(li);
+                        });
+
+                        projectDetail.classList.remove('hidden');
+                        projectDetail.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
                 });
             });
         });
