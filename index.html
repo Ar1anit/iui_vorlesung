@@ -67,7 +67,7 @@
             <div data-topic="llm" class="topic-card bg-white p-6 rounded-xl shadow-md cursor-pointer border-b-4 border-amber-400">
                 <h2 class="text-xl font-bold text-slate-900">Interacting with LLMs</h2>
                 <p class="text-slate-500 mt-2">Grundlagen, Prompting-Techniken und Integration von Large Language Models.</p>
-            </div>
+            </div >
             <div data-topic="genai" class="topic-card bg-white p-6 rounded-xl shadow-md cursor-pointer border-b-4 border-amber-400">
                 <h2 class="text-xl font-bold text-slate-900">Generative AI</h2>
                 <p class="text-slate-500 mt-2">Potenziale, technische Grundlagen und Herausforderungen der Generativen KI.</p>
@@ -844,15 +844,15 @@
                     id: 'magic-wand-duel',
                     title: 'Magic Wand Duel (Gestenerkennung)',
                     short_description: 'Ein Spiel zur Erkennung von Zaubergesten mittels physikalischer Sensordaten und Machine Learning.',
-                    description: 'Dieses Projekt implementiert ein "Magic Wand Duel"-Spiel, bei dem Nutzer Zaubergesten mit einem physikalischen Sensorstab (Arduino-basiert) ausführen. Ein Machine Learning Modell erkennt diese Gesten, um den Ausgang eines Duells zu bestimmen. Die Architektur umfasst einen Datenrekorder für Sensordaten, eine Machine Learning Pipeline zur Gestenerkennung und einen Flask-Server, der die Spielregeln und den Duellverlauf verwaltet.',
+                    description: 'Dieses Projekt implementiert ein "Magic Wand Duel"-Spiel, bei dem Nutzer Zaubergesten mit einem physikalischen Sensorstab (Arduino-basiert) ausführen. Die Systemarchitektur ist modular aufgebaut und umfasst drei Hauptkomponenten: einen **Datenrekorder** zur Erfassung von Beschleunigungs- und Gyroskopdaten über eine serielle Schnittstelle, eine **Machine Learning Pipeline** zur Verarbeitung und Klassifizierung dieser Sensordaten, sowie einen **Flask-Server**, der die Spielregeln, den Duellverlauf und die Kommunikation mit den Clients (z.B. einem Web-Dashboard) verwaltet. Die Datenpipeline beinhaltet Schritte wie Outlier-Removal, lineare Interpolation und Feature-Engineering, bevor ein Random Forest Klassifikator die Gesten erkennt. Das Spiel unterstützt persistente Spielzustände und bietet eine visuelle und akustische Rückmeldung an die Spieler. Die gesamte Anwendung ist für einfache Bereitstellung containerisiert (Docker) und nutzt CI/CD-Prozesse.',
                     concepts: [
                         'Tracking Users\' Bodies: Direkte Anwendung von Inertial Tracking (Accelerometer, Gyroskope) zur Erfassung von Körperbewegungen/Gesten. Nutzung von Sensorkoordinatensystemen zur Datenaufnahme.',
-                        'Gestures: Implementierung eines Gestenerkenners für dynamische Gesten (Zaubergesten). Anwendung von Techniken zur Gestenerkennung wie Feature Extraction (Mittelwert, Standardabweichung, Min/Max der Sensordaten) und Klassifikation. Das Projekt definiert ein Gestenvokabular (z.B. "Stein", "Schere", "Papier").',
-                        'Interacting with LLMs: (Indirekt) Das Projekt ist ein Beispiel für die Entwicklung einer neuartigen Benutzerinteraktion, die über traditionelle GUIs hinausgeht und physikalische Gesten als primäre Eingabemodalität nutzt.',
-                        'Explainable AI (XAI): Die Visualisierung von Feature-Räumen (Nearest Neighbors) kann als eine Form der lokalen Interpretierbarkeit oder der Visualisierung gelernter Repräsentationen betrachtet werden, um die Entscheidungen des ML-Modells nachvollziehbarer zu machen.',
-                        'Context and Adaptive Systems: (Indirekt) Das System passt sich an die physische Geste des Benutzers an, wobei der Mensch als primärer Kontext für die Interaktion dient.'
+                        'Gestures: Implementierung eines Gestenerkenners für dynamische Gesten (Zaubergesten). Anwendung von Techniken zur Gestenerkennung wie Feature Extraction (Mittelwert, Standardabweichung, Min/Max der Sensordaten) und Klassifikation (Random Forest). Das Projekt definiert ein Gestenvokabular ("Stein", "Schere", "Papier") und berücksichtigt Feedback-Gabe (visuell, akustisch) sowie Usability/Learnability durch Onboarding und Übungsmodi.',
+                        'Explainable AI (XAI): Die Visualisierung von Feature-Räumen (Nearest Neighbors) und die Analyse von Feature-Importances aus dem Random Forest können als Methoden zur lokalen Interpretierbarkeit und zum Verständnis der Modellentscheidungen dienen.',
+                        'Context and Adaptive Systems: Das System passt sich an die physische Geste des Benutzers an, wobei der Mensch als primärer Kontext für die Interaktion dient. Erweiterungsmöglichkeiten umfassen adaptive Personalisierung (personalisierte Klassifikatoren) und multimodale Interaktion (Kombination von Gesten und Sprache).',
+                        'Usable Security: (Indirekt) Obwohl nicht primär ein Security-Projekt, berührt die Authentifizierung von Gesten und die Zuverlässigkeit der Erkennung Aspekte der Usable Security, insbesondere im Hinblick auf die Verifikation von Nutzeraktionen durch biometrische Merkmale (Verhaltensbiometrie).'
                     ],
-                    technologies: 'Python (NumPy, Pandas, scikit-learn - RandomForestClassifier, NearestNeighbors, StandardScaler, joblib), Flask (Webserver), Tkinter (GUI für Recorder), Serial Communication (Arduino), Matplotlib (Visualisierung).'
+                    technologies: 'Python (NumPy, Pandas, scikit-learn - RandomForestClassifier, NearestNeighbors, StandardScaler, joblib), Flask (Webserver), Tkinter (GUI für Recorder), pyserial (Serielle Kommunikation mit Arduino), Matplotlib (Visualisierung), Docker, GitLab CI.'
                 }
             ];
 
