@@ -153,13 +153,7 @@
                         <h4 class="font-bold text-lg text-amber-600">Optical Tracking</h4>
                         <p class="text-slate-600 mt-1">Berührungslose Messung mittels optischer Sensorik (Kameras), die visuelle Informationen zur Verfolgung von Objekten nutzt.</p>
                         <ul class="ml-4 list-disc list-inside text-slate-600 mt-2">
-                            <li><strong>Marker-basiert:</strong> Verwendet spezifische, künstliche und eindeutig erkennbare visuelle Muster (Marker wie QR-Codes, ArUco-Marker). Marker enthalten binäre Muster zur Identifikation und Bestimmung von Position/Orientierung.
-                                <ul class="ml-6 list-disc list-inside">
-                                    <li><strong>ArUco Marker:</strong> Quadratische schwarz-weiße Marker mit binärer ID, robust für Kamera-Tracking, Kalibrierung und AR-Anwendungen.</li>
-                                    <li><strong>Bits Extraction:</strong> Prozess des Auslesens der binären Daten (Marker-ID) aus dem Bildmuster zur Marker-Identifikation.</li>
-                                    <li><strong>Anwendung:</strong> Kostengünstiges Fuß-Tracking in VR.</li>
-                                </ul>
-                            </li>
+                            <li><strong>Marker-basiert:</strong> Nutzt künstliche, eindeutig erkennbare Muster (z.B. ArUco Marker - quadratische schwarz-weiße Marker mit binärer ID, leicht detektierbar, fehlerkorrigierbar). Anwendung: Kostengünstiges Fuß-Tracking in VR. Bits Extraction: Auslesen der binären Daten (Marker-ID) aus dem Bildmuster zur Marker-Identifikation.</li>
                             <li><strong>Marker-los:</strong> Nutzt natürliche Merkmale der Umgebung (Kanten, Texturen, Keypoints) ohne künstliche Marker.
                                 <ul class="ml-6 list-disc list-inside">
                                     <li><strong>Prinzip:</strong> Keypoint-Detektion löst Tracking und Detektion gleichzeitig.</li>
@@ -178,7 +172,7 @@
                     </div>
                     <div class="bg-slate-50 p-4 rounded-lg border border-slate-200">
                         <h4 class="font-bold text-lg text-amber-600">Ultrasonic Tracking</h4>
-                        <p class="text-slate-600 mt-1">Bestimmt die Position eines Objekts mithilfe von Ultraschallwellen, die von Sendern ausgesendet und von Empfängern detektiert werden, basierend auf der Laufzeit der Wellen.</p>
+                        <p class="text-slate-600 mt-1">Bestimmt Position eines Objekts mithilfe von Ultraschallwellen, die von Sendern ausgesendet und von Empfängern detektiert werden, basierend auf der Laufzeit der Wellen.</p>
                     </div>
                     <div class="bg-slate-50 p-4 rounded-lg border border-slate-200">
                         <h4 class="font-bold text-lg text-amber-600">Advanced Tracking (Beispiele)</h4>
@@ -188,7 +182,7 @@
                                 <ul class="ml-6 list-disc list-inside">
                                     <li><strong>Technologie:</strong> Kameras und Infrarot-Illuminatoren erfassen Augenbewegungen und Reflexionsmuster. Algorithmen berechnen daraus den Blickpunkt.</li>
                                     <li><strong>Kalibrierung:</strong> Prozess zur präzisen Abbildung des Blickpunkts auf einen Punkt im Anzeigebereich.</li>
-                                    <li><strong>Augenbewegungstypen:</strong> Vergenzbewegungen (Fokussierung), Folgebewegungen (sanftes Verfolgen), Sakkaden (schnelles Scannen).</li>
+                                    <li><strong>Augenbewegungstypen:</strong> Vergenzbewegungen (Fokussierung), Pursuit-Bewegungen (Verfolgung), Sakkaden (schnelles Scannen).</li>
                                     <li><strong>Anwendungen:</strong> Gaze-touch (Blick und Touch kombiniert), Messung mentaler Belastung (Pupillendurchmesser, beeinflusst durch Helligkeit und Arbeitslast).</li>
                                 </ul>
                             </li>
@@ -226,7 +220,7 @@
                         <h3 class="text-2xl font-bold mb-4 text-slate-800">Charakteristika (Vor- & Nachteile)</h3>
                         <ul class="space-y-3 list-disc list-inside text-slate-700">
                            <li><strong>Vorteile:</strong> Schnell auszuführen, können natürlich wirken, große Vielfalt, geräteunabhängig, können Befehl und Parameter gleichzeitig spezifizieren.</li>
-                           <li><strong>Nachteile:</strong> Erfordern präzise Erkennung, keine "Affordance" (Nutzer muss Gesten lernen), Feedback-Gabe ist herausfordernd, können sozial inakzeptabel sein, ungeeignet für detaillierte Eingaben.</li>
+                           <li><strong>Nachteile:</strong> Erfordern präzise Erkennung, keine "Affordanz" (Nutzer muss Gesten lernen), Feedback-Gabe ist herausfordernd, können sozial inakzeptabel sein, ungeeignet für detaillierte Eingaben.</li>
                         </ul>
                     </div>
                 </div>
@@ -271,7 +265,7 @@
                 </div>
                 <div class="bg-slate-50 p-4 rounded-lg border border-slate-200 mb-6">
                     <h4 class="font-bold text-lg text-amber-600">Gestenvokabular</h4>
-                    <p class="text-slate-600 mt-1">Die Menge aller definierten Gesten, die ein System erkennt und versteht. Jede Geste ist einem spezifischen Befehl oder einer Aktion zugeordnet.</p>
+                    <p class="text-slate-600 mt-1">Menge aller definierten Gesten, die ein System erkennt und versteht. Jede Geste ist einem spezifischen Befehl oder einer Aktion zugeordnet.</p>
                     <ul class="ml-4 list-disc list-inside text-slate-600 mt-2">
                         <li><strong>Design-Prinzip:</strong> Eine Faustregel besagt, so wenige Gesten wie möglich zu verwenden, um Fehlinterpretationen und unbeabsichtigte Eingaben zu vermeiden.</li>
                         <li><strong>Wichtige Aspekte bei der Gestaltung:</strong>
@@ -290,7 +284,7 @@
                         <li><strong>Dynamic Time Warping (DTW):</strong> Ein Algorithmus zum Vergleich zweier Zeitreihen, die sich in der Geschwindigkeit oder Dauer unterscheiden können. DTW normalisiert die Zeit, sodass das Ergebnis zeitinvariant ist. Dies bietet deutliche Vorteile gegenüber der euklidischen Distanz bei Zeitreihendaten, da es zeitliche Verschiebungen und Dehnungen berücksichtigt und eine bessere Übereinstimmung findet.</li>
                         <li><strong>$-Family Recognizer:</strong> Eine Familie von Gestenerkennern, die Gesten als Punktwolken darstellen.
                             <ul class="ml-6 list-disc list-inside">
-                                <li><strong>$P – Gesten als Punktwolken:</strong> Dieser Recognizer behandelt Gesten als eine Sammlung von Punkten im Raum und nicht als eine feste Sequenz. Erfordert Normalisierung der Punktwolken (Resampling, Längenanpassung, Skalierung, Verschiebung zum Ursprung). Für jeden Punkt im Testset wird der nächstgelegene Punkt in der Vorlagen-Geste gesucht. Nutzt Algorithmen wie 1NN (1-Nearest Neighbor) für die Klassifizierung.</li>
+                                <li><strong>$P – Gesten als Punktwolken:</strong> Dieser Recognizer behandelt Gesten als eine Sammlung von Punkten im Raum und nicht als eine feste Sequenz. Erfordert Normalisierung der Punktwolken (Resampling, Längenanpassung, Skalierung, Verschiebung zum Ursprung). Für jeden Punkt im Testset wird der nächstgelegene Punkt in der Vorlage (1NN) gesucht.</li>
                                 <li><strong>$1:</strong> Für einfache, einstrichige Gesten (Unistroke).</li>
                                 <li><strong>$N:</strong> Für Gesten mit mehreren Strichen (Multistroke).</li>
                                 <li><strong>$Q:</strong> Eine schnelle Version von $P (ca. 142× schneller), optimiert für schnelle Erkennung.</li>
@@ -304,7 +298,7 @@
                 <ul class="space-y-2 list-disc list-inside text-slate-700">
                     <li><strong>Methode:</strong> Probanden sehen den Effekt einer Geste (z.B. ein Objekt bewegt sich auf dem Bildschirm) und werden gebeten, die Geste auszuführen, von der sie glauben, dass sie diesen Effekt auslöst.</li>
                     <li><strong>Messung:</strong> Aufzeichnung der ausgeführten Gesten von mehreren potenziellen Nutzern für eine bestimmte Aktion. Berechnung des <strong>Agreement Score</strong>, der den Grad der Übereinstimmung (Konsens) zwischen den Benutzern für eine bestimmte Geste misst. Ein hoher Agreement Score deutet auf eine intuitive Geste hin.</li>
-                    <li><strong>Bewertung der erhobenen Gesten:</strong> Prüfung, ob die Gesten gut passen, einfach auszuführen sind und keine Konflikte mit anderen Gesten haben.</li>
+                    <li><strong>Bewertung der erhobenen Gesten:</strong> Prüfung, ob die Gesten gut passen, einfach auszuführen sind und keine Konflikte haben.</li>
                     <li><strong>Erforderliche Genauigkeit für einen erfolgreichen Gestenerkenner:</strong> Die notwendige Genauigkeit hängt stark von der Anwendung ab. Für Freizeit- oder Unterhaltungsanwendungen können Erkennungsraten von 80–90 % ausreichend sein. In sicherheitskritischen oder medizinischen Anwendungen sind hingegen über 95 % notwendig. Wichtig ist, dass der Gestenerkenner zuverlässig und konsistent arbeitet und Fehler für den Nutzer leicht erkennbar und korrigierbar sind.</li>
                 </ul>
             </section>
@@ -339,7 +333,7 @@
                         </li>
                     </ul>
                 </div>
-                <h3 class="text-2xl font-bold mb-4 text-slate-800">Herausforderungen und Designprinzipien</h3>
+                 <h3 class="text-2xl font-bold mb-4 text-slate-800">Herausforderungen und Designprinzipien</h3>
                 <div class="grid md:grid-cols-2 gap-6">
                     <div class="bg-slate-50 p-4 rounded-lg border border-slate-200">
                         <h4 class="font-bold text-lg text-amber-600">Herausforderungen</h4>
@@ -358,15 +352,15 @@
                             <li><strong>Nutzerführung:</strong> Nutzer müssen informiert werden, was möglich ist und wo sie sich im Dialog befinden.</li>
                             <li><strong>Kontrolle:</strong> Die Konversation muss jederzeit abbrechbar oder unterbrechbar sein (Barge-In).</li>
                             <li><strong>Optionen begrenzen:</strong> Nicht mehr als drei verschiedene Optionen auf einmal nennen; längere Listen gruppieren und weitere Optionen auf Nachfrage anbieten.</li>
-                            <li><strong>Multimodalität:</strong> Nutzung von Kombinationen mit anderen Schnittstellen (z.B. GUI) zur Verbesserung der Interaktion, um Stärken zu nutzen und Schwächen auszugleichen.</li>
+                            <li><strong>Multimodalität:</strong> Nutzung von Kombinationen mit anderen Schnittstellen (z. B. kombiniert mit GUI) zur Verbesserung der Interaktion, um Stärken zu nutzen und Schwächen auszugleichen.</li>
                             <li><strong>Reaktionszeiten:</strong> Optimal zwischen 0–2 Sekunden. Bei längeren Verzögerungen (z.B. durch Cloud-Anfragen, Netzwerkprobleme) sollte das System den Nutzer informieren ("let me look that up for you").</li>
                         </ul>
                         <h4 class="font-bold text-lg text-amber-600 mt-4">"Voice-first"-Designprinzipien</h4>
                          <ul class="space-y-2 list-disc list-inside text-slate-600 mt-2">
                            <li><strong>Anpassungsfähig:</strong> Das System sollte Nutzer in ihren eigenen Worten sprechen lassen, anstatt starre Befehle zu erzwingen.</li>
-                           <li><strong>Persönlich:</strong> Individualisierte Ansprache des Nutzers, um eine natürlichere Interaktion zu ermöglichen.</li>
-                           <li><strong>Immer verfügbar:</strong> Optionen sollten flach strukturiert sein, um schnell und ohne tiefe Menüführung erreichbar zu sein.</li>
-                           <li><strong>Relational:</strong> Der Dialog sollte gesprächsähnlich sein und nicht nur aus Befehlen und Antworten bestehen.</li>
+                           <li><strong>Persönlich:</strong> Individualisierte Ansprache.</li>
+                           <li><strong>Immer verfügbar:</strong> Optionen flach strukturiert.</li>
+                           <li><strong>Relational:</strong> Gesprächsähnlicher Dialog statt reiner Befehlsstil.</li>
                         </ul>
                     </div>
                 </div>
@@ -388,7 +382,7 @@
                 <div class="concept-box bg-slate-100 p-6 rounded-lg mb-6">
                     <h3 class="text-2xl font-bold mb-4 text-slate-800">Grundlagen von LLMs</h3>
                      <ul class="space-y-3 list-disc list-inside text-slate-700">
-                        <li><strong>Definition:</strong> Generative Pretrained Transformer, trainiert auf riesigen Textmengen (geschätzt ~1 Petabyte Daten).</li>
+                        <li><strong>Definition:</strong> Generative Pretrained Transformer, trainiert auf riesigen Textmengen (~1 Petabyte Daten).</li>
                         <li><strong>Trainingsdaten:</strong> Umfassen Bücher, Websites, Code, E-Mails, Videos u.v.m. (z.B. Library of Congress: 32 Mio. Bücher, ~20 TB; GPT-4 Trainingsdaten: ~1 Petabyte, ~64 Mio. USD Kosten).</li>
                         <li><strong>Kontextfenster:</strong> Maximale Menge an Informationen (Tokens), die ein Modell gleichzeitig als Eingabe verarbeiten und im Gedächtnis behalten kann (z.B. GPT-4 hat 8–32k Token Kontextfenster, GPT-4o bis 128k Tokens). Ein Token kann ein Wortteil, ein Wort oder ein Satzzeichen sein.</li>
                         <li><strong>Architektur:</strong> Typischerweise Decoder-only Transformer.
@@ -406,7 +400,7 @@
 
                 <h3 class="text-2xl font-bold mb-4 text-slate-800">Interaktion mit LLMs (Prompting)</h3>
                 <ul class="space-y-2 list-disc list-inside text-slate-700 mb-6">
-                    <li><strong>Prompting:</strong> Die Qualität der Modellergebnisse hängt stark von der Formulierung des Prompts (der Eingabeaufforderung) ab. Es ist eine Kunst und Wissenschaft, effektive Prompts zu schreiben.</li>
+                    <li><strong>Prompting:</strong> Ergebnisqualität hängt stark von der Formulierung des Prompts (der Eingabeaufforderung) ab. Es ist eine Kunst und Wissenschaft, effektive Prompts zu schreiben.</li>
                     <li><strong>Bestandteile eines guten Prompts:</strong> Instruction (was zu tun ist), Context (Hintergrundinfo), Input Data (Frage/Daten), Output Indicator (gewünschtes Format).</li>
                     <li>Präzise Anweisungen verbessern die Ergebnisse erheblich, da sie dem Modell klare Grenzen und Ziele setzen.</li>
                 </ul>
@@ -502,8 +496,8 @@
                 <div class="concept-box bg-slate-100 p-6 rounded-lg">
                     <h3 class="text-2xl font-bold mb-4 text-slate-800">Herausforderungen & Zukunft</h3>
                     <ul class="space-y-3 list-disc list-inside text-slate-700">
-                        <li><strong>Herausforderungen:</strong> Semantisches Verständnis (KI interpretiert Inhalte nicht immer korrekt), Kontrolle & Steuerung (Präzision der Ergebnisse), Trainingsdaten (Urheberrecht, Fairness, Bias), Nutzerakzeptanz (Widerstand von Künstlern), Missbrauch (Deepfakes, Desinformation).</li>
-                        <li><strong>Zukunft:</strong> Höhere Qualität und bessere Steuerbarkeit der Ergebnisse, stärkere Personalisierung und proaktive Anpassung an Nutzer, zunehmende ethische & rechtliche Regulierung, potenzielle gesellschaftliche Folgen (Jobveränderungen).</li>
+                        <li><strong>Herausforderungen:</strong> Semantisches Verständnis (KI interpretiert Inhalte nicht immer korrekt), Kontrolle & Steuerung (Präzision der Ergebnisse), Trainingsdaten (Urheberrecht, Fairness, Bias), Nutzerakzeptanz (Widerstand von Künstlern), Missbrauch (Deepfakes).</li>
+                        <li><strong>Zukunft:</strong> Höhere Qualität und bessere Steuerbarkeit, stärkere Personalisierung, mehr ethische & rechtliche Regulierung, potenzielle gesellschaftliche Folgen (Jobveränderungen).</li>
                     </ul>
                 </div>
             </section>
@@ -550,7 +544,7 @@
                             <li><strong>Funktional:</strong> Basierend auf der Reaktion des Körpers auf einen Stimulus.
                                 <ul class="ml-6 list-disc list-inside">
                                     <li><strong>Körperreflexionen:</strong> Reaktion des Körpers auf ein Signal.</li>
-                                    <li><strong>Kopfstruktur (SkullConduct):</strong> Nutzt Schallleitung durch den Schädel. Audio wird abgespielt, durch den Schädel geleitet und vom Mikrofon aufgenommen. Die einzigartige Frequenzantwort des Schädels dient als "Fingerabdruck" zur Identifikation.</li>
+                                    <li><strong>Kopfstruktur (SkullConduct):</strong> Nutzt Schallleitung durch den Schädel. Audio wird abgespielt, durch den Schädel geleitet und vom Mikrofon aufgenommen. Die einzigartige Frequenzantwort des Schädel dient als "Fingerabdruck" zur Identifikation.</li>
                                 </ul>
                             </li>
                         </ul>
@@ -560,7 +554,7 @@
                         <ol class="list-decimal list-inside text-slate-600 mt-2 space-y-1">
                             <li><strong>Sensor:</strong> Nimmt das biometrische Sample auf (z.B. Fingerabdruckscanner, Kamera, Mikrofon).</li>
                             <li><strong>Feature-Extraktor:</strong> Extrahiert einzigartige Merkmale aus dem Sample (z. B. Minutien bei Fingerabdrücken, MFCC-Features bei Audio).</li>
-                            <li><strong>Matching-Modul:</strong> Vergleicht die extrahierten Merkmale des aktuellen Samples mit gespeicherten Templates in der Datenbank.</li>
+                            <li><strong>Matching-Modul:</strong> Vergleicht das Sample mit gespeicherten Templates.</li>
                             <li><strong>Datenbank:</strong> Enthält bekannte Templates (Referenzdaten) der registrierten Nutzer.</li>
                         </ol>
                     </div>
@@ -578,7 +572,7 @@
                     <div class="bg-slate-50 p-4 rounded-lg border border-slate-200">
                         <h4 class="font-bold text-lg text-amber-600">Leistungsmetriken (für biometrische Systeme)</h4>
                         <ul class="space-y-2 list-disc list-inside text-slate-600 mt-2">
-                            <li><strong>True Positive Rate (TPR) / Trefferquote:</strong> Anteil der korrekt akzeptierten legitimen Nutzer (TP / (TP + FN)).</li>
+                            <li><strong>True Positive Rate (TPR):</strong> Trefferquote (TP / (TP + FN)).</li>
                             <li><strong>False Positive Rate (FPR) / FAR (False Acceptance Rate):</strong> Anteil der fälschlicherweise akzeptierten unberechtigten Nutzer (FP / (FP + TN)).</li>
                             <li><strong>False Negative Rate (FNR) / FRR (False Rejection Rate):</strong> Anteil der fälschlicherweise abgelehnten legitimen Nutzer (FN / (FN + TP)).</li>
                             <li><strong>Accuracy (ACC):</strong> Gesamtgenauigkeit des Systems ((TP + TN) / Gesamtanzahl der Fälle).</li>
@@ -630,14 +624,14 @@
                     <div class="bg-slate-50 p-4 rounded-lg border border-slate-200">
                         <h4 class="font-bold text-lg text-amber-600">Beispiele für Bias</h4>
                         <ul class="space-y-2 list-disc list-inside text-slate-600 mt-2">
-                            <li><strong>Microsoft Tay:</strong> Chatbot lernt rassistische und sexistische Sprache von Twitter-Interaktionen.</li>
-                            <li><strong>Google Vision:</strong> Klassifiziert gleiche Bilder unterschiedlich nach Hautfarbe (z.B. erkennt "Gun" statt "Monocular" bei dunkler Haut).</li>
-                            <li><strong>Google Translate:</strong> Zeigt Geschlechter-Bias in Übersetzungen (z.B. "Der Arzt" vs. "Die Krankenschwester").</li>
-                            <li><strong>Amazon Recruiting Tool:</strong> Zeigte Bias gegen Frauen bei der Bewerberauswahl.</li>
-                            <li><strong>Pulse Oximeter:</strong> Ungenauigkeit bei der Sauerstoffmessung bei Menschen mit dunkler Hautfarbe.</li>
-                            <li><strong>Voice Assistants:</strong> Typisch weiblich und unterwürfig konzipiert; können sexistisches Verhalten induzieren.</li>
-                            <li><strong>Co-Writing mit Meinung-behafteten LLMs:</strong> Beeinflusst die Meinung der Nutzer (z.B. zu sozialen Medien), je nachdem, welche Meinung das Modell bevorzugt generiert.</li>
-                            <li><strong>GPT-3 Output Bias:</strong> Generiert mehr gewalttätige Inhalte für Prompts über Muslime im Vergleich zu anderen Religionen.</li>
+                            <li>Microsoft Tay (Chatbot lernt rassistische und sexistische Sprache von Twitter-Interaktionen).</li>
+                            <li>Google Vision (Klassifiziert gleiche Bilder unterschiedlich nach Hautfarbe; erkennt "Gun" statt "Monocular" bei dunkler Haut).</li>
+                            <li>Google Translate (Geschlechter-Bias in Übersetzungen).</li>
+                            <li>Amazon Recruiting Tool (Bias gegen Frauen bei der Bewerberauswahl).</li>
+                            <li>Pulse Oximeter (Ungenauigkeit bei der Sauerstoffmessung bei Menschen mit dunkler Hautfarbe).</li>
+                            <li>Voice Assistants (Typisch weiblich und unterwürfig konzipiert; können sexistisches Verhalten induzieren).</li>
+                            <li>Co-Writing mit Meinung-behafteten LLMs beeinflusst Nutzermeinung.</li>
+                            <li>GPT-3 Output Bias (generiert mehr gewalttätige Inhalte für Prompts über Muslime).</li>
                         </ul>
                     </div>
                     <div class="bg-slate-50 p-4 rounded-lg border border-slate-200">
@@ -653,7 +647,7 @@
                 <div class="concept-box bg-slate-100 p-6 rounded-lg">
                     <h3 class="text-2xl font-bold mb-4 text-slate-800">Folgen & Strategien zur Vermeidung</h3>
                     <ul class="space-y-3 list-disc list-inside text-slate-700">
-                        <li><strong>Folgen von Bias:</strong> Unfaire Behandlung bestimmter Gruppen, Verstärkung gesellschaftlicher Vorurteile, Veränderung von Wahrnehmung und Verhalten der Nutzer.</li>
+                        <li><strong>Folgen von Bias:</strong> Unfaire Behandlung bestimmter Gruppen, Verstärkung gesellschaftlicher Vorurteile, Veränderung von Wahrnehmung/Verhalten.</li>
                         <li><strong>Strategien zur Vermeidung:</strong> Vielfalt der Nutzer berücksichtigen (im Design und in den Daten), Alternativen anbieten, über potenzielle Konsequenzen nachdenken.</li>
                         <li><strong>Kontextuelle Integrität (Helen Nissenbaum):</strong> Ein Datenschutzprinzip, das sich auf den kontextgerechten Informationsfluss konzentriert. Informationen sind dann privat, wenn ihr Fluss den kontextuellen Normen entspricht.
                             <ul class="ml-6 list-disc list-inside">
@@ -722,7 +716,7 @@
                         <ul class="space-y-2 list-disc list-inside text-slate-600 mt-2">
                             <li><strong>Kontextbasiert:</strong> Empfehlung abhängig vom aktuellen Kontext des Nutzers (Ort, Zeit, Situation).</li>
                             <li><strong>Demographisch:</strong> Empfehlung basierend auf demographischen Merkmalen des Nutzers (Altersgruppe, Einkommen, Bildung).</li>
-                            <li><strong>Soziale Beziehungen:</strong> Empfehlung basierend auf dem Verhalten von Freunden und Kontakten des Nutzers.</li>
+                            <li><strong>Soziale Beziehungen:</strong> Empfehlung basierend auf dem Verhalten von Freunden und Kontakten des Nutters.</li>
                         </ul>
                     </div>
                     <div class="bg-slate-50 p-4 rounded-lg border border-slate-200">
@@ -790,7 +784,7 @@
                             <li><strong>Vertrauen und Überprüfbarkeit fördern:</strong> Nutzer und Entwickler können der KI mehr vertrauen, wenn sie verstehen, wie Entscheidungen getroffen werden.</li>
                             <li><strong>Neue Einsichten ermöglichen:</strong> Erklärungen können aufzeigen, was das Modell wirklich gelernt hat und wo es möglicherweise Fehler macht.</li>
                             <li><strong>Gesetzliche Anforderungen erfüllen:</strong> Z.B. das "Recht auf Erklärung" bei automatisierten Entscheidungen gemäß DSGVO.</li>
-                            <li><strong>„Clever Hans“-Effekte erkennen und vermeiden:</strong> Aufdecken, wenn ein Modell Entscheidungen auf irrelevanten Mustern oder Korrelationen basiert, anstatt die eigentliche Aufgabe zu lösen.</li>
+                            <li>„Clever Hans“-Effekte erkennen und vermeiden (Modell nutzt irrelevante Muster für Entscheidungen).</li>
                         </ul>
                     </div>
                 </div>
@@ -839,7 +833,7 @@
                         <h4 class="font-bold text-lg text-amber-600 mt-4">Adversarial Attacks</h4>
                         <ul class="space-y-2 list-disc list-inside text-slate-600 mt-2">
                             <li><strong>Definition:</strong> Gezielte Manipulation von Eingabedaten, um ML-Algorithmen zu täuschen und Fehlklassifikationen zu provozieren.</li>
-                            <li>Eine winzige, oft für Menschen kaum wahrnehmbare Änderung (z.B. ein Pixel) kann ausreichen, um das Modell zu täuschen (One-Pixel Attack).</li>
+                            <li>Eine winzige Änderung (z.B. ein Pixel) kann ausreichen (One-Pixel Attack).</li>
                             <li>**Beispiele:** Panda wird als Gibbon klassifiziert durch minimales Rauschen; Stoppschilder werden durch Aufkleber falsch erkannt; Textklassifikatoren werden durch Zeichenänderungen getäuscht.</li>
                             <li>Erklärbarkeit von KI trägt dazu bei, solche Angriffe besser zu verstehen und Abwehrmechanismen zu entwickeln.</li>
                         </ul>
@@ -847,14 +841,10 @@
                     <div class="bg-slate-50 p-4 rounded-lg border border-slate-200">
                         <h4 class="font-bold text-lg text-amber-600">Beispiele für XAI & Probleme</h4>
                         <ul class="space-y-2 list-disc list-inside text-slate-600 mt-2">
-                            <li><strong>AlphaGo:</strong> Traf unerwartete, schwer erklärbare Züge, die menschliche Go-Spieler nicht verstanden.</li>
-                            <li><strong>Clever Hans:</strong> Ein Pferd, das scheinbar rechnen konnte, aber tatsächlich auf die unbewussten Signale seines Trainers reagierte. Bei KI tritt der "Clever Hans"-Effekt auf, wenn das Modell Entscheidungen auf irrelevanten Mustern (z.B. Hintergrund eines Bildes statt des eigentlichen Objekts) basiert.</li>
-                            <li><strong>Visualisierungen:</strong>
-                                <ul class="ml-6 list-disc list-inside">
-                                    <li>Gelernter Repräsentationen (z.B. Neuronale Netzwerke im TensorFlow Playground visualisieren, was Neuronen lernen).</li>
-                                    <li>Einzelner Vorhersagen (Heat Maps zeigen, welche Bereiche eines Bildes für eine Klassifikation am wichtigsten waren).</li>
-                                </ul>
-                            </li>
+                            <li>AlphaGo: Unerwartete, schwer erklärbare Züge.</li>
+                            <li>Clever Hans: Ein Pferd, das scheinbar rechnen konnte, aber tatsächlich auf die unbewussten Signale seines Trainers reagierte. Bei KI tritt der "Clever Hans"-Effekt auf, wenn das Modell Entscheidungen auf irrelevanten Mustern (z.B. Hintergrund eines Bildes statt des eigentlichen Objekts) basiert.</li>
+                            <li><strong>LIME:</strong> Methode für lokale erklärbare Vorhersagen (zeigt, welche Teile der Eingabe für eine einzelne Vorhersage wichtig waren).</li>
+                            <li>Visualisierungen gelernter Repräsentationen und einzelner Vorhersagen (Heat Maps).</li>
                         </ul>
                     </div>
                 </div>
@@ -863,7 +853,7 @@
                     <ul class="space-y-2 list-disc list-inside text-slate-700">
                         <li>XAI adressiert die Probleme von Komplexität, mangelnder Transparenz und geringer Robustheit von KI-Modellen.</li>
                         <li>Erklärbarkeit fördert Vertrauen, ermöglicht Einsicht in das Modellverhalten und erfüllt regulatorische Anforderungen.</li>
-                        <li>Wichtige Methoden umfassen Surrogate-Modelle, lokale Erklärungen (wie LIME) und verschiedene Visualisierungstechniken.</li>
+                    <li>Wichtige Methoden: Surrogates, lokale Erklärungen, Visualisierungen.</li>
                     </ul>
                 </div>
             </section>
@@ -909,7 +899,7 @@
                             <li><strong>Palm Detection:</strong> Erkennung der aufliegenden Handfläche auf einem Touchscreen, um unbeabsichtigte Eingaben abzulehnen.</li>
                             <li><strong>Finger-/Griff-Erkennung:</strong> Modelle können das Verhalten oder die Absicht des Nutzers besser verstehen, basierend auf der Art, wie Finger oder Hände interagieren oder ein Objekt greifen.</li>
                             <li><strong>Orientierung der Finger:</strong> Kann genutzt werden, um die Absicht des Nutzers zu erkennen (z.B. Zeigegeste).</li>
-                            <li><strong>Kontext in der Interaktion:</strong> Kontext kann durch Experimente und Verhaltensbeobachtung erfasst werden. Komplexe Szenarien können durch kontextbezogene Verhaltenskodierung analysiert werden, um ein tiefes Verständnis der Interaktion zu gewinnen.</li>
+                            <li><strong>Kontext in der Interaktion:</strong> Kontext kann durch Experimente und Verhaltensbeobachtung erfasst werden. Komplexe Szenarien durch kontextbezogene Verhaltenskodierung analysieren.</li>
                         </ul>
                     </div>
                 </div>
@@ -947,7 +937,7 @@
                     <ul class="space-y-2 list-disc list-inside text-slate-700">
                         <li>Kontexte erfassen und verstehen ist entscheidend für die Entwicklung sicherer und nützlicher Systeme.</li>
                         <li>Adaptive Systeme reagieren dynamisch auf Nutzer und Umgebung, um die Interaktion zu optimieren.</li>
-                        <li>Ethische Überlegungen und Datenschutz müssen kontextsensitiv gestaltet sein.</li>
+                        <li>Ethik und Datenschutz müssen kontextsensitiv gestaltet sein.</li>
                         <li>Menschliche Faktoren und situative Einflüsse müssen immer mit berücksichtigt werden, um effektive und komfortable Benutzerschnittstellen zu schaffen.</li>
                     </ul>
                 </div>
@@ -1022,14 +1012,45 @@
                     id: 'llm-writing-assistant',
                     title: 'LLM Writing Assistant',
                     short_description: 'Entwicklung eines KI-basierten Schreibassistenten zur Textoptimierung.',
-                    description: 'Dieses Projekt umfasste die Entwicklung einer Fullstack-Webanwendung, die einen lokalen Large Language Model (LLM) über Ollama integriert. Die Anwendung bietet Funktionen wie Grammatikprüfung, Paraphrasierung, Korrekturlesen, Zitierhilfe und Textzusammenfassung. Besondere Herausforderungen waren die Optimierung der LLM-Ressourcennutzung auf begrenzter Hardware und die präzise Steuerung des Modells durch Prompt Engineering.',
+                    description: `
+                        Dieses Projekt umfasste die Entwicklung einer Fullstack-Webanwendung, die einen lokalen Large Language Model (LLM) über Ollama integriert.
+                        Die Anwendung bietet Funktionen wie Grammatikprüfung, Paraphrasierung, Korrekturlesen, Zitierhilfe und Textzusammenfassung.
+                        <br><br>
+                        <strong>1. System-Architektur & Datenfluss:</strong>
+                        Die Architektur besteht aus einem FastAPI-Backend, das als API-Proxy dient, und einem Streamlit-Frontend für die Benutzeroberfläche.
+                        Das Frontend sendet Benutzertexte und gewünschte Optimierungsmodi an das Backend.
+                        Das Backend leitet diese Anfragen an den lokalen Ollama-Server weiter, der das LLM hostet und die Textverarbeitung durchführt.
+                        <br><br>
+                        <strong>2. HCI- und NUI-Aspekte:</strong>
+                        Die Benutzeroberfläche ist intuitiv gestaltet, mit klaren Textfeldern für Eingabe und Ausgabe sowie spezifischen Buttons für jede Optimierungsfunktion.
+                        Visuelles Feedback (Spinner bei Verarbeitung) und klare Warnmeldungen verbessern die Nutzerführung.
+                        Die Anwendung demonstriert, wie LLMs in interaktive UIs integriert werden können, um die Benutzerproduktivität zu steigern.
+                        <br><br>
+                        <strong>3. AI-Techniken & Prompting:</strong>
+                        Das Herzstück ist die Interaktion mit dem LLM über präzise Prompts.
+                        Es werden maßgeschneiderte Prompts für jede Funktion (Grammatik, Paraphrasierung etc.) verwendet, die das Modell anweisen, NUR die gewünschte Ausgabe zu liefern.
+                        Das Projekt nutzt Konzepte des Prompt Engineering, um die Ergebnisqualität zu steuern und das Modellverhalten zu definieren (System-Prompt).
+                        Die 'weight'-Parameter im Frontend werden als 'temperature'-Parameter an das LLM übergeben, um die Kreativität der Antwort zu steuern.
+                        <br><br>
+                        <strong>4. Software-Engineering & Deployment:</strong>
+                        Das Projekt ist modular aufgebaut (Frontend, Backend).
+                        Die Abhängigkeiten werden über eine <code>requirements.txt</code>-Datei verwaltet.
+                        Virtuelle Umgebungen sorgen für eine saubere und isolierte Entwicklungsumgebung.
+                        Das Backend wird mit Uvicorn betrieben, was eine schnelle Entwicklung und automatischen Reload bei Codeänderungen ermöglicht.
+                        <br><br>
+                        <strong>5. Herausforderungen & Lösungen:</strong>
+                        * <strong>Ressourcennutzung:</strong> Optimierung der LLM-Ressourcennutzung auf begrenzter Hardware (z.B. Mac mit 8 GB RAM) durch den Einsatz kleinerer, quantisierter Modelle (z.B. Phi-3:mini oder Llama 3.2:latest).
+                        * <strong>API-Kommunikation:</strong> Sicherstellung der korrekten Kommunikation zwischen Frontend, Backend und Ollama-Server, inklusive Fehlerbehebung bei "Connection refused" oder "TypeError: unexpected keyword argument 'temperature'".
+                        * <strong>Prompt Engineering:</strong> Präzise Steuerung des Modells, um nur den gewünschten Output zu erhalten und unerwünschte Kommentare zu vermeiden.
+                    `,
                     concepts: [
-                        'Interacting with LLMs: Prompt Engineering (Zero-Shot, Few-Shot, Chain-of-Thought), System Prompts.',
-                        'Generative AI: Potenziale der Textgenerierung, Herausforderungen bei Kontrolle und Steuerung.',
-                        'Voice User Interfaces: (Indirekt) Konzepte der Mensch-KI-Interaktion und Nutzerführung.',
-                        'Context and Adaptive Systems: (Indirekt) Anpassung der KI-Antworten an den Kontext des Nutzers.'
+                        'Interacting with LLMs: Prompt Engineering (Zero-Shot, Few-Shot, Chain-of-Thought), System Prompts, Kontextlängen, Ressourcenverbrauch, Mensch-KI-Integration.',
+                        'Generative AI: Potenziale der Textgenerierung, Herausforderungen bei Kontrolle und Steuerung (Semantisches Verständnis, Präzision).',
+                        'Voice User Interfaces: (Indirekt) Konzepte der Mensch-KI-Interaktion und Nutzerführung (Affordance, Feedback, Fehlertoleranz).',
+                        'Context and Adaptive Systems: (Indirekt) Anpassung der KI-Antworten an den Kontext des Nutzers (Modus, Gewicht).',
+                        'Explainable AI (XAI): (Indirekt) Die Klarheit des LLM-Outputs durch präzises Prompting kann als eine Form der Verbesserung der Interpretierbarkeit des Modells gesehen werden.'
                     ],
-                    technologies: 'Python (FastAPI, Streamlit, python-dotenv), Ollama (Llama 3.2:latest, Phi-3:mini), HTML/CSS (Tailwind CSS), JavaScript.'
+                    technologies: 'Python (FastAPI, Streamlit, requests, python-dotenv), Ollama (Llama 3.2:latest, Phi-3:mini), HTML/CSS (Tailwind CSS), JavaScript.'
                 },
                 {
                     id: 'generio-3d-generator',
@@ -1047,8 +1068,49 @@
                 {
                     id: 'magic-wand-duel',
                     title: 'Magic Wand Duel (Gestenerkennung)',
-                    short_description: 'Ein Spiel zur Erkennung von Zaubergesten mittels physikalischer Sensordaten und Machine Learning.',
-                    description: 'Dieses Projekt implementiert ein "Magic Wand Duel"-Spiel, bei dem Nutzer Zaubergesten mit einem physikalischen Sensorstab (Arduino-basiert) ausführen. Die Systemarchitektur ist modular aufgebaut und umfasst drei Hauptkomponenten: einen **Datenrekorder** zur Erfassung von Beschleunigungs- und Gyroskopdaten über eine serielle Schnittstelle, eine **Machine Learning Pipeline** zur Verarbeitung und Klassifizierung dieser Sensordaten, sowie einen **Flask-Server**, der die Spielregeln, den Duellverlauf und die Kommunikation mit den Clients (z.B. einem Web-Dashboard) verwaltet. Die Datenpipeline beinhaltet Schritte wie Outlier-Removal, lineare Interpolation und Feature-Engineering, bevor ein Random Forest Klassifikator die Gesten erkennt. Das Spiel unterstützt persistente Spielzustände und bietet eine visuelle und akustische Rückmeldung an die Spieler. Die gesamte Anwendung ist für einfache Bereitstellung containerisiert (Docker) und nutzt CI/CD-Prozesse.',
+                    short_description: 'Ein interaktives Duell-Spiel, bei dem physische Zaubergesten mit einem Arduino-Sensorstab erfasst, per ML klassifiziert und in einem Server-basierten Spielflow ausgewertet werden.',
+                    description: `
+                        Dieses Projekt implementiert ein "Magic Wand Duel"-Spiel, bei dem Nutzer Zaubergesten mit einem physikalischen Sensorstab (Arduino-basiert) ausführen. Ein Machine Learning Modell erkennt diese Gesten, um den Ausgang eines Duells zu bestimmen.
+                        <br><br>
+                        <strong>1. System-Architektur & Datenfluss:</strong>
+                        * <strong>Sensor-Stack:</strong> IMU (Inertial Measurement Unit) mit Accelerometer und Gyroskop am Bluno-Beetle (Arduino-basiert).
+                        * <strong>Serielle Anbindung:</strong> Nutzung von <code>pyserial</code> zur Kommunikation mit einem Python-Recorder (Tkinter GUI) für die Datenerfassung.
+                        * <strong>Data-Pipeline:</strong>
+                            * Datenerfassung: Rohdaten im CSV-Format (Zeitstempel + Sensorwerte).
+                            * Preprocessing: <strong>Outlier-Removal</strong> via Z-Score (entfernt Extremwerte), <strong>Lineare Interpolation</strong> fehlender Werte, <strong>Zeitnormalisierung</strong> (tₛ = time/1000).
+                            * <strong>Feature-Engineering:</strong> Extraktion relevanter Merkmale pro Achse (Mittelwert, Standardabweichung, Min/Max). Optionale weitere Features wie Energy, Entropy, FFT-Koeffizienten können hinzugefügt werden.
+                        * <strong>ML-Modell:</strong> Klassifikation der Gesten per <strong>Random Forest Classifier</strong> (<code>scikit-learn</code>).
+                            * Evaluation: Durchführung von <strong>5-Fold Cross-Validation</strong>, Berechnung von Confusion Matrix, Precision, Recall.
+                            * Persistenz: Speichern des Scalers und des Random Forest Modells mit <code>joblib</code> (<code>scaler.pkl</code>, <code>gesture_rf.pkl</code>) für den späteren Einsatz.
+                        * <strong>Server & Game-Logic:</strong> Ein <strong>Flask/FastAPI-Service</strong> mit einem REST-Endpoint (<code>/castspell</code>) verwaltet persistente Spielzustände, Team-Slots und die Runden-Logik. Battlelogs werden im CSV-Format archiviert.
+                        <br><br>
+                        <strong>2. HCI- und NUI-Aspekte:</strong>
+                        * <strong>Gestenvokabular:</strong> Drei klare, ergonomische Zaubergesten („Stein“, „Papier“, „Schere“) wurden definiert. Die Minimierung der Ähnlichkeit zwischen den Gesten ist entscheidend zur Vermeidung von Fehlklassifikationen.
+                        * <strong>Feedback & Affordance:</strong> Visuelle Anzeige des aktuellen Status (Tkinter GUI / Web-Dashboard) und akustisches Feedback über LEDs am Stab oder Browser-Alerts informieren den Nutzer.
+                        * <strong>Robustheit & Echtzeit:</strong> Buffering und Threading werden eingesetzt, um die Latenz in der GUI gering zu halten. Glättungsschritte (gleitende Mittelwerte) dienen der Rauschunterdrückung der Sensordaten.
+                        * <strong>Usability & Learnability:</strong> Ein Onboarding-Prozess (kurze Demo-Sequenz) führt Nutzer in das Gestenvokabular ein. Wiederholtes Üben im Wizard-Arena-Modus fördert die Lernbarkeit.
+                        <br><br>
+                        <strong>3. AI-Techniken & Explainability:</strong>
+                        * <strong>Klassische Zeitreihen-Algorithmen:</strong> Alternative Ansätze zur Gestenerkennung könnten <strong>Dynamic Time Warping (DTW)</strong> oder der <strong>1-Nearest-Neighbor (1-NN)</strong> Klassifikator im <strong>$P-Recognizer Framework</strong> sein.
+                        * <strong>Explainable AI (XAI):</strong>
+                            * Visualisierung der Feature-Cluster im 2D-Plot (z.B. mit Matplotlib) hilft, die Verteilung der Gesten im Feature-Raum zu verstehen.
+                            * Hervorheben des nächsten Nachbarn (Nearest-Neighbor) für eine Klassifikation kann die lokale Entscheidung des Modells erklären.
+                            * Analyse der Feature-Importance aus dem Random Forest zur Bestimmung der Reihenfolge der Achsengewichte gibt Einblicke, welche Sensordaten für die Klassifikation am wichtigsten sind.
+                        <br><br>
+                        <strong>4. Evaluation & Metriken:</strong>
+                        * <strong>Quantitativ:</strong> Messung von Accuracy, Precision, Recall, F1-Score pro Klasse. Einsatz von <strong>5-Fold Cross-Validation</strong> zur robusten Bewertung der Modellleistung.
+                        * <strong>Qualitativ:</strong> Analyse von Fehlerraten im Wizard-Test (Miss-Classifications) und Durchführung von Nutzerstudien (z.B. per Questionnaire) zur Bewertung der Intuitivität der Gesten.
+                        <br><br>
+                        <strong>5. Software-Engineering & Deployment:</strong>
+                        * <strong>Modulare Struktur:</strong> Das Projekt ist in separate Komponenten unterteilt: <code>python-recorder</code> (Datenerfassung), <code>python-client-wandduel</code> (Duel-Client), <code>python-server-wandduel</code> (API & Game Logic).
+                        * <strong>Containerisierung:</strong> Nutzung von <strong>Dockerfiles</strong> für Recorder, Server und Client. <strong>Docker Compose</strong> für eine einfache lokale Entwicklungsumgebung.
+                        * <strong>CI/CD:</strong> Automatischer Build und Test per <strong>GitLab CI</strong>.
+                        <br><br>
+                        <strong>6. Erweiterungsmöglichkeiten:</strong>
+                        * <strong>Multimodale Interaktion:</strong> Kombinieren von Sprache (VUI) und Gesten für komplexere Zauber.
+                        * <strong>Adaptives System:</strong> Entwicklung personalisierter Klassifikatoren pro Nutzer durch Online-Learning.
+                        * <strong>Edge-Deployment:</strong> Verschieben der ML-Inferenz auf den Embedded-Controller (TinyML) zur Reduzierung der Latenz und Erhöhung der Autonomie.
+                    `,
                     concepts: [
                         'Tracking Users\' Bodies: Direkte Anwendung von Inertial Tracking (Accelerometer, Gyroskope) zur Erfassung von Körperbewegungen/Gesten. Nutzung von Sensorkoordinatensystemen zur Datenaufnahme.',
                         'Gestures: Implementierung eines Gestenerkenners für dynamische Gesten (Zaubergesten). Anwendung von Techniken zur Gestenerkennung wie Feature Extraction (Mittelwert, Standardabweichung, Min/Max der Sensordaten) und Klassifikation (Random Forest). Das Projekt definiert ein Gestenvokabular ("Stein", "Schere", "Papier") und berücksichtigt Feedback-Gabe (visuell, akustisch) sowie Usability/Learnability durch Onboarding und Übungsmodi.',
@@ -1076,7 +1138,7 @@
                     const selectedProject = projectsData.find(p => p.id === projectCard.dataset.projectId);
                     if (selectedProject) {
                         projectDetailTitle.textContent = selectedProject.title;
-                        projectDetailDescription.textContent = selectedProject.description;
+                        projectDetailDescription.innerHTML = selectedProject.description; // Use innerHTML for rich text
                         projectDetailTech.textContent = selectedProject.technologies;
                         
                         projectDetailConcepts.innerHTML = ''; // Clear previous concepts
