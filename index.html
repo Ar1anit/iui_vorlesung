@@ -110,64 +110,94 @@
                 <div class="concept-box bg-slate-100 p-6 rounded-lg mb-6">
                     <h3 class="text-2xl font-bold mb-4 text-slate-800">Grundlagen des Trackings</h3>
                     <ul class="space-y-3 list-disc list-inside text-slate-700">
-                        <li><strong>Tracking:</strong> Kontinuierliche Bestimmung der Position, Orientierung oder Pose eines Objekts/Benutzers im Raum.</li>
-                        <li><strong>Registrierung:</strong> Präzises Ausrichten virtueller Objekte an der realen Welt, sodass sie räumlich korrekt erscheinen.</li>
-                        <li><strong>Koordinatensysteme:</strong>
+                        <li><strong>Tracking:</strong> Kontinuierliche Bestimmung der Position, Orientierung oder Pose eines Objekts oder Benutzers im Raum. Es ist die Basis für interaktive Systeme in erweiterten Realitäten.
                             <ul class="ml-6 space-y-2 mt-2">
-                                <li><strong>Weltkoordinatensystem (WCS):</strong> Festes Referenzsystem der Umgebung.</li>
-                                <li><strong>Sensorkoordinatensystem (SCS):</strong> Lokales System des Sensors.</li>
-                                <li><strong>Augenkoordinatensystem (ECS):</strong> Spezifisch für die Blickverfolgung.</li>
+                                <li><strong>Für Handheld Devices (z.B. Smartphones in AR):</strong> Tracking bezieht sich auf die Bestimmung des (bewegten) Kamerastandpunkts relativ zur Umgebung.</li>
+                                <li><strong>Für Head-Mounted Devices (z.B. VR/AR-Brillen):</strong> Tracking umfasst die Bestimmung des (bewegten) Blickpunkts des Nutzers und die kontinuierliche Bestimmung seiner Position und Haltung im Raum.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Registrierung:</strong> Der Prozess des präzisen Ausrichtens virtueller Objekte an der realen Welt, sodass sie räumlich korrekt erscheinen und sich nahtlos in die Umgebung einfügen. Ohne präzise Registrierung würden virtuelle Objekte "schwimmen" oder nicht zur realen Umgebung passen.</li>
+                        <li><strong>Koordinatensysteme:</strong> Sind essenziell, um Positionen und Orientierungen eindeutig zu beschreiben und Transformationen zwischen verschiedenen Referenzrahmen durchzuführen.
+                            <ul class="ml-6 space-y-2 mt-2">
+                                <li><strong>Weltkoordinatensystem (WCS):</strong> Ein definiertes, festes Referenzsystem, das die "reale Welt" beschreibt. Alle anderen Koordinatensysteme werden relativ dazu bestimmt.</li>
+                                <li><strong>Sensorkoordinatensystem (SCS):</strong> Ein Koordinatensystem, das direkt am Sensor (z.B. Kamera, IMU) definiert ist. Die vom Sensor erfassten Bewegungen werden in diesem System gemessen und dann ins WCS transformiert.</li>
+                                <li><strong>Augenkoordinatensystem (ECS):</strong> Ein spezifisches Koordinatensystem, das mit dem Auge (bzw. der Blickrichtung) des Nutzers verknüpft ist, besonders relevant für Eye-Tracking.</li>
                             </ul>
                         </li>
                     </ul>
                 </div>
 
                 <h3 class="text-2xl font-bold mb-4 text-slate-800">Was kann getrackt werden?</h3>
+                <p class="mb-4 text-slate-700">Die Tracking-Methoden sind vielfältig und können auf verschiedene Körperteile oder physiologische Signale angewendet werden, um unterschiedliche Interaktionsformen zu ermöglichen:</p>
                 <ul class="space-y-2 list-disc list-inside text-slate-700 mb-6">
-                    <li>Hände</li>
-                    <li>Füße</li>
-                    <li>Körper</li>
-                    <li>Augen</li>
-                    <li>Gehirn</li>
+                    <li>Hände (Finger Tracking)</li>
+                    <li>Füße (Foot Tracking)</li>
+                    <li>Körper (Body Tracking)</li>
+                    <li>Augen (Eye Tracking)</li>
+                    <li>Gehirn (Brain-Computer Interfaces)</li>
                 </ul>
 
                 <h3 class="text-2xl font-bold mb-4 text-slate-800">Tracking-Methoden im Überblick</h3>
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                     <div class="bg-slate-50 p-4 rounded-lg border border-slate-200">
                         <h4 class="font-bold text-lg text-amber-600">Inertial Tracking</h4>
-                        <p class="text-slate-600 mt-1">Nutzt Bewegungssensoren (Beschleunigungssensoren, Gyroskope, Magnetometer) zur Positions- und Orientierungsbestimmung. Anwendungen: Aktivitätserkennung, Unterstützung bei Übungen, Erkennung von Schreibbewegungen. Accelerometer messen Beschleunigung durch Kapazitätsänderung einer verschobenen Masse. Kapazitive Sensorik misst Kapazitätsänderungen durch Annäherung von Objekten.</p>
+                        <p class="text-slate-600 mt-1">Nutzt Bewegungssensoren zur Positions- und Orientierungsbestimmung, indem sie Beschleunigungen und Rotationsraten messen.</p>
+                        <ul class="ml-4 list-disc list-inside text-slate-600 mt-2">
+                            <li><strong>Sensoren:</strong> Beschleunigungssensoren (Accelerometers), Gyroskope, Magnetometer.</li>
+                            <li><strong>Accelerometer Principle:</strong> Ein winziger Feder-Masse-Sensor, bei dem sich die Masse bei Beschleunigung verschiebt, was eine Kapazitätsänderung zwischen Elektroden verursacht und als Beschleunigung interpretiert wird.</li>
+                            <li><strong>Anwendungen:</strong> Aktivitätserkennung (z.B. Gehen, Radfahren, Tai-Chi-Übungen), Erkennung von Schreibbewegungen in Smartpens.</li>
+                            <li><strong>Kapazitive Sensorik:</strong> Misst Kapazitätsänderungen, die durch die Annäherung oder Berührung von Objekten (z.B. Finger) verursacht werden, häufig in Touchscreens verwendet.</li>
+                        </ul>
                     </div>
                     <div class="bg-slate-50 p-4 rounded-lg border border-slate-200">
                         <h4 class="font-bold text-lg text-amber-600">Optical Tracking</h4>
-                        <p class="text-slate-600 mt-1">Berührungslose Messung mittels optischer Sensorik (Kameras).
-                            <ul class="ml-4 list-disc list-inside">
-                                <li><strong>Marker-basiert:</strong> Nutzt künstliche, eindeutig erkennbare Muster (z.B. ArUco Marker - quadratische schwarz-weiße Marker mit binärer ID, leicht detektierbar, fehlerkorrigierbar). Anwendung: Kostengünstiges Fuß-Tracking in VR. Bits Extraction: Auslesen der binären Daten (Marker-ID) aus dem Bildmuster.</li>
-                                <li><strong>Marker-los:</b> Nutzt natürliche Merkmale der Umgebung (Kanten, Texturen, Keypoints). Prinzip: Keypoint-Detektion löst Tracking und Detektion gleichzeitig. Anwendung: AR-Anwendungen.</li>
-                            </ul>
-                        </p>
+                        <p class="text-slate-600 mt-1">Berührungslose Messung mittels optischer Sensorik (Kameras), die visuelle Informationen zur Verfolgung von Objekten nutzt.</p>
+                        <ul class="ml-4 list-disc list-inside text-slate-600 mt-2">
+                            <li><strong>Marker-basiert:</strong> Verwendet spezifische, künstliche und eindeutig erkennbare visuelle Muster (Marker wie QR-Codes, ArUco-Marker). Marker enthalten binäre Muster zur Identifikation und Bestimmung von Position/Orientierung.
+                                <ul class="ml-6 list-disc list-inside">
+                                    <li><strong>ArUco Marker:</strong> Quadratische schwarz-weiße Marker mit binärer ID, robust für Kamera-Tracking, Kalibrierung und AR-Anwendungen.</li>
+                                    <li><strong>Bits Extraction:</strong> Prozess des Auslesens der binären Daten (Marker-ID) aus dem Bildmuster zur Marker-Identifikation.</li>
+                                    <li><strong>Anwendung:</strong> Kostengünstiges Fuß-Tracking in VR.</li>
+                                </ul>
+                            </li>
+                            <li><strong>Marker-los:</strong> Nutzt natürliche Merkmale der Umgebung (Kanten, Texturen, Keypoints) ohne künstliche Marker.
+                                <ul class="ml-6 list-disc list-inside">
+                                    <li><strong>Prinzip:</strong> Keypoint-Detektion löst Tracking und Detektion gleichzeitig.</li>
+                                    <li><strong>Anwendung:</strong> AR-Anwendungen (z.B. AR-Haustiere, die sich an die reale Umgebung anpassen).</li>
+                                </ul>
+                            </li>
+                        </ul>
                     </div>
                     <div class="bg-slate-50 p-4 rounded-lg border border-slate-200">
                         <h4 class="font-bold text-lg text-amber-600">Mechanical Tracking</h4>
-                        <p class="text-slate-600 mt-1">Position und Orientierung eines Objekts wird mechanisch (mit physischen Gelenken und Sensoren) gemessen.</p>
+                        <p class="text-slate-600 mt-1">Die Position und Orientierung eines Objekts wird mechanisch gemessen, oft durch physische Gelenke und Sensoren, die an einem Exoskelett oder einer Vorrichtung befestigt sind.</p>
                     </div>
                     <div class="bg-slate-50 p-4 rounded-lg border border-slate-200">
                         <h4 class="font-bold text-lg text-amber-600">Magnetic Tracking</h4>
-                        <p class="text-slate-600 mt-1">Misst Position und Orientierung im Raum mit Hilfe von Magnetfeldern.</p>
+                        <p class="text-slate-600 mt-1">Misst die Position und Orientierung eines Objekts im Raum mithilfe von Magnetfeldern, die von Sendern erzeugt und von Empfängern detektiert werden.</p>
                     </div>
                     <div class="bg-slate-50 p-4 rounded-lg border border-slate-200">
                         <h4 class="font-bold text-lg text-amber-600">Ultrasonic Tracking</h4>
-                        <p class="text-slate-600 mt-1">Bestimmt Position eines Objekts mit Hilfe von Ultraschallwellen.</p>
+                        <p class="text-slate-600 mt-1">Bestimmt die Position eines Objekts mithilfe von Ultraschallwellen, die von Sendern ausgesendet und von Empfängern detektiert werden, basierend auf der Laufzeit der Wellen.</p>
                     </div>
                     <div class="bg-slate-50 p-4 rounded-lg border border-slate-200">
                         <h4 class="font-bold text-lg text-amber-600">Advanced Tracking (Beispiele)</h4>
                         <ul class="ml-4 list-disc list-inside">
-                            <li><strong>Finger Tracking mit Armband:</strong> Kontinuierliches 3D-Fingertracking und Schätzung der Handpose mittels miniaturisierter Wärmebildkameras (32x24 Pixel) und Regressionsnetzwerken.</li>
-                            <li><strong>Eye-Tracking:</strong> Messung des Blickpunkts durch Bestimmung der Augenrotation und Erfassung der Augenbewegung im Raum/relativ zum Kopf.
+                            <li><strong>Finger Tracking mit Armband (FingerTrak):</strong> Ein am Handgelenk getragenes Armband für kontinuierliches 3D-Fingertracking und Handposen-Schätzung. Nutzt vier miniaturisierte Wärmebildkameras (niedrige Auflösung) und ein Regression Network zur Vorhersage von 20 Fingergelenkpositionen.</li>
+                            <li><strong>Eye-Tracking (Blickverfolgung):</strong> Misst den Blickpunkt durch Analyse der Augenrotation und -bewegung (oft in Kombination mit Head-Tracking).
                                 <ul class="ml-6 list-disc list-inside">
-                                    <li><strong>Augen Bewegungstypen:</strong> Vergenzbewegungen (Fokussierung), Pursuit-Bewegungen (Verfolgung), Sakkaden (schnelles Scannen).</li>
+                                    <li><strong>Technologie:</strong> Kameras und Infrarot-Illuminatoren erfassen Augenbewegungen und Reflexionsmuster. Algorithmen berechnen daraus den Blickpunkt.</li>
+                                    <li><strong>Kalibrierung:</strong> Prozess zur präzisen Abbildung des Blickpunkts auf einen Punkt im Anzeigebereich.</li>
+                                    <li><strong>Augenbewegungstypen:</strong> Vergenzbewegungen (Fokussierung), Folgebewegungen (sanftes Verfolgen), Sakkaden (schnelles Scannen).</li>
+                                    <li><strong>Anwendungen:</strong> Gaze-touch (Blick und Touch kombiniert), Messung mentaler Belastung (Pupillendurchmesser, beeinflusst durch Helligkeit und Arbeitslast).</li>
                                 </ul>
                             </li>
-                            <li><strong>Brain-Computer Interfaces (BCI):</strong> Direkte Schnittstelle Gehirn-Gerät. SSVEP-basiertes BCI nutzt flimmernde visuelle Reize, die messbare EEG-Aktivität im visuellen Kortex erzeugen, zur Steuerung in VR.</li>
+                            <li><strong>Brain-Computer Interfaces (BCI):</strong> Direkte Schnittstelle zwischen Gehirn und externem Gerät zur Steuerung durch Gedanken.
+                                <ul class="ml-6 list-disc list-inside">
+                                    <li><strong>SSVEP-basiertes BCI (Steady State Visually Evoked Potential):</strong> Nutzt flimmernde visuelle Reize, die messbare elektrische Aktivität im visuellen Kortex (EEG) erzeugen.</li>
+                                    <li><strong>Anwendung:</strong> Steuerung in Virtual Reality (z.B. Navigation durch Konzentration auf flimmernde Elemente).</li>
+                                </ul>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -182,21 +212,21 @@
                     <div class="concept-box bg-slate-100 p-6 rounded-lg">
                         <h3 class="text-2xl font-bold mb-4 text-slate-800">Grundlagen von Gesten</h3>
                         <ul class="space-y-3 list-disc list-inside text-slate-700">
-                            <li><strong>Definition:</strong> Eine Geste ist eine Körperbewegung, die Informationen enthält.</li>
+                            <li><strong>Definition:</strong> Eine Geste ist eine Bewegung des Körpers, die Informationen enthält. Dies unterscheidet sie von reinen physischen Aktionen ohne intendierte Bedeutung.</li>
                             <li><strong>Typen:</strong>
                                 <ul class="ml-6 space-y-2 mt-2">
-                                    <li><strong>Posturen (statisch):</strong> Feste Hand- oder Körperhaltungen ohne Bewegung.</li>
-                                    <li><strong>Gesten (dynamisch):</strong> Bewegungen, bei denen der Pfad (Trajektorie) oder Haltungswechsel über die Zeit wichtig ist.</li>
+                                    <li><strong>Posturen (statische Gesten):</strong> Feste Hand- oder Körperhaltungen, bei denen keine Bewegung stattfindet. Die relative Position von Händen und Fingern ist hier entscheidend.</li>
+                                    <li><strong>Gesten (dynamische Gesten):</strong> Bewegungen, bei denen der Pfad der Hand (Trajektorie) und/oder eine Abfolge von Haltungswechseln über die Zeit wichtig ist. Der Bewegungsverlauf ist hier entscheidend für die Bedeutung.</li>
                                 </ul>
                             </li>
-                             <li><strong>Gestenerkenner:</strong> Ein Software-Tool, das Gesten interpretiert, oft unter Einsatz von KI.</li>
+                             <li><strong>Gestenerkenner:</strong> Ein Software-Tool, das eine Geste interpretiert. Da jede Ausführung einer Geste leicht variieren kann, wird häufig Künstliche Intelligenz (KI) eingesetzt, um Gesten robust zu erkennen.</li>
                         </ul>
                     </div>
                      <div class="concept-box bg-slate-100 p-6 rounded-lg">
                         <h3 class="text-2xl font-bold mb-4 text-slate-800">Charakteristika (Vor- & Nachteile)</h3>
                         <ul class="space-y-3 list-disc list-inside text-slate-700">
-                           <li><strong>Vorteile:</strong> Schnell auszuführen, natürlich, große Vielfalt, geräteunabhängig, können Befehl und Parameter gleichzeitig spezifizieren.</li>
-                           <li><strong>Nachteile:</strong> Erfordern präzise Erkennung, keine "Affordanz" (Nutzer muss Gesten lernen), Feedback-Gabe ist herausfordernd, können sozial inakzeptabel sein, ungeeignet für detaillierte Eingaben.</li>
+                           <li><strong>Vorteile:</strong> Schnell auszuführen, können natürlich wirken, große Vielfalt, geräteunabhängig, können Befehl und Parameter gleichzeitig spezifizieren.</li>
+                           <li><strong>Nachteile:</strong> Erfordern präzise Erkennung, keine "Affordance" (Nutzer muss Gesten lernen), Feedback-Gabe ist herausfordernd, können sozial inakzeptabel sein, ungeeignet für detaillierte Eingaben.</li>
                         </ul>
                     </div>
                 </div>
@@ -204,45 +234,78 @@
                 <h3 class="text-2xl font-bold mt-8 mb-4 text-slate-800">Taxonomie von Gesten</h3>
                 <p class="mb-4 text-slate-700">Gesten werden systematisch in Kategorien eingeteilt, um sie besser zu analysieren, vergleichen und gestalten zu können:</p>
                 <ul class="space-y-2 list-disc list-inside text-slate-700 mb-6">
-                    <li><strong>Pointing (Zeigen):</strong> Auswahl von Objekten oder Positionen.</li>
-                    <li><strong>Semaphoric (Semaphorisch):</strong> Vermittelt Informationen durch Haltung oder Bewegung.</li>
-                    <li><strong>Pantomimic (Pantomimisch):</strong> Simuliert die Verwendung unsichtbarer Werkzeuge oder Objekte.</li>
-                    <li><strong>Iconic (Ikonisch):</strong> Vermittelt Informationen über Größe, Form oder Orientierung.</li>
-                    <li><strong>Manipulation:</strong> Direkte Steuerung von Objekten in einer Feedback-Schleife.</li>
+                    <li><strong>Pointing (Zeigen):</strong> Gesten, die dazu dienen, ein Objekt, eine Position oder einen Bereich im Raum zu markieren oder auszuwählen. Sie etablieren eine räumliche Referenz.
+                        <ul class="ml-6 list-disc list-inside">
+                            <li>**Beispiele:** Fester Fingerzeig auf einen Button, Winken mit der Hand, um auf eine Richtung hinzuweisen.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Semaphoric (Semaphorisch):</strong> Gesten, die eine Information oder einen Befehl durch eine kodierte Haltung oder Bewegung vermitteln. Sie sind oft symbolisch und müssen gelernt werden.
+                        <ul class="ml-6 list-disc list-inside">
+                            <li>**Beispiele:** Daumen hoch als Zustimmung, Handbewegung eines Polizisten zum Anhalten des Verkehrs.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Pantomimic (Pantomimisch):</strong> Gesten, die die Verwendung eines unsichtbaren Werkzeugs oder Objekts im Raum simulieren, um eine Aktion auszuführen. Der Benutzer agiert so, als hätte er das Werkzeug tatsächlich in der Hand.
+                        <ul class="ml-6 list-disc list-inside">
+                            <li>**Beispiele:** Drehen eines imaginären Schlüssels, Greifen und Ziehen an einem unsichtbaren Seil.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Iconic (Ikonisch):</strong> Gesten, die Informationen über die Größe, Form oder Orientierung eines Objekts vermitteln, indem sie das Objekt selbst imitieren oder seine Eigenschaften darstellen.
+                        <ul class="ml-6 list-disc list-inside">
+                            <li>**Beispiele:** Hände so formen, dass sie die Größe eines Balles zeigen, Formen eines Herzens mit den Händen.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Manipulation:</strong> Gesten, die eine direkte Interaktion mit Objekten in einer engen Feedback-Schleife ermöglichen. Der Benutzer hat das Gefühl, das digitale Objekt direkt zu steuern oder zu verändern.
+                        <ul class="ml-6 list-disc list-inside">
+                            <li>**Beispiele:** Ziehen eines Fensters auf einem Touchscreen, Pinch-Geste zum Verkleinern/Vergrößern.</li>
+                        </ul>
+                    </li>
                 </ul>
 
                 <h3 class="text-2xl font-bold mb-4 text-slate-800">Gestaltung und Erkennung</h3>
                  <div class="bg-slate-50 p-4 rounded-lg border border-slate-200 mb-6">
                     <h4 class="font-bold text-lg text-amber-600">Gestenerkenner-Komponenten</h4>
                     <ul class="space-y-2 list-disc list-inside text-slate-600 mt-2">
-                        <li><strong>Sensing Technology (Hardware):</strong> Erfasst Daten (Position, Beschleunigung, Orientierung über Zeit; 2D/3D-Gesten).</li>
-                        <li><strong>AI-Komponente (Software):</strong> Analysiert räumliche/zeitliche Daten, klassifiziert Gesten (rotations- und größeninvariant).</li>
+                        <li><strong>Sensing Technology (Hardware):</strong> Erfasst die notwendigen Daten über Position, Beschleunigung oder Orientierung über die Zeit (z.B. von Touchscreens, Videokameras, IMUs, Beschleunigungssensoren). Unterscheidet zwischen 2D-Gesten (auf einer Oberfläche) und 3D-Gesten (im Raum).</li>
+                        <li><strong>AI-Komponente (Software):</strong> Analysiert die räumlichen und zeitlichen Komponenten der erfassten Daten, um Gesten zu klassifizieren. Wichtige Eigenschaften sind <strong>Rotationsinvarianz</strong> (Geste wird erkannt, egal wie der Benutzer die Hand dreht) und <strong>Größeninvarianz</strong> (Geste wird erkannt, unabhängig von der Größe der Ausführung).</li>
                     </ul>
                 </div>
                 <div class="bg-slate-50 p-4 rounded-lg border border-slate-200 mb-6">
                     <h4 class="font-bold text-lg text-amber-600">Gestenvokabular</h4>
-                    <p class="text-slate-600 mt-1">Menge aller definierten Gesten, die ein System erkennt und versteht. Jede Geste ist einem Befehl zugeordnet.</p>
+                    <p class="text-slate-600 mt-1">Die Menge aller definierten Gesten, die ein System erkennt und versteht. Jede Geste ist einem spezifischen Befehl oder einer Aktion zugeordnet.</p>
                     <ul class="ml-4 list-disc list-inside text-slate-600 mt-2">
-                        <li><strong>Design-Prinzip:</strong> So wenige Gesten wie möglich, um Fehlinterpretationen zu vermeiden.</li>
-                        <li><strong>Wichtige Aspekte bei der Gestaltung:</strong> Ergonomie (Komfort), Metaphern (intuitive Bilder, z.B. "Gummituch" für Zoom), Natürlichkeit.</li>
+                        <li><strong>Design-Prinzip:</strong> Eine Faustregel besagt, so wenige Gesten wie möglich zu verwenden, um Fehlinterpretationen und unbeabsichtigte Eingaben zu vermeiden.</li>
+                        <li><strong>Wichtige Aspekte bei der Gestaltung:</strong>
+                            <ul class="ml-6 list-disc list-inside">
+                                <li><strong>Ergonomie:</strong> Gesten sollten komfortabel, natürlich und effizient ausführbar sein, um Ermüdung zu vermeiden.</li>
+                                <li><strong>Metaphern:</strong> Helfen, Gesten leichter zu verstehen und zu merken, indem sie abstrakte Gesten in sinnvolle, intuitive Bilder übersetzen (z.B. die "Gummituch"-Metapher für Zoom-Gesten auf einer Karte).</li>
+                                <li><strong>Natürlichkeit:</strong> Gesten sollten sich für den Nutzer natürlich und intuitiv anfühlen, basierend auf alltäglichen Interaktionen.</li>
+                            </ul>
+                        </li>
                     </ul>
                 </div>
                 <div class="bg-slate-50 p-4 rounded-lg border border-slate-200">
                     <h4 class="font-bold text-lg text-amber-600">Techniken zur Gestenerkennung</h4>
                     <ul class="space-y-2 list-disc list-inside text-slate-600 mt-2">
-                        <li><strong>Sliding Window:</strong> Ein "Fenster" wird über Zeitreihendaten bewegt, um Muster zu analysieren.</li>
-                        <li><strong>Dynamic Time Warping (DTW):</strong> Algorithmus zum Vergleich zweier Zeitreihen; normalisiert die Zeit (zeitinvariant), Vorteile gegenüber euklidischer Distanz.</li>
-                        <li><strong>$-Family Recognizer:</strong> Behandelt Gesten als Punktwolken (z.B. $P-Recognizer). Erfordert Normalisierung (Resampling, Skalierung) und sucht den nächstgelegenen Punkt in der Vorlage (1NN). Typen: $1 (einstrichig), $N (mehrstrichig), $Q (schnelle $P-Version).</li>
+                        <li><strong>Sliding Window:</strong> Eine Methode zur Analyse von Zeitreihendaten. Ein "Fenster" von Daten wird über die Zeit verschoben, und die Daten innerhalb dieses Fensters werden analysiert, um Muster oder Gesten zu erkennen.</li>
+                        <li><strong>Dynamic Time Warping (DTW):</strong> Ein Algorithmus zum Vergleich zweier Zeitreihen, die sich in der Geschwindigkeit oder Dauer unterscheiden können. DTW normalisiert die Zeit, sodass das Ergebnis zeitinvariant ist. Dies bietet deutliche Vorteile gegenüber der euklidischen Distanz bei Zeitreihendaten, da es zeitliche Verschiebungen und Dehnungen berücksichtigt und eine bessere Übereinstimmung findet.</li>
+                        <li><strong>$-Family Recognizer:</strong> Eine Familie von Gestenerkennern, die Gesten als Punktwolken darstellen.
+                            <ul class="ml-6 list-disc list-inside">
+                                <li><strong>$P – Gesten als Punktwolken:</strong> Dieser Recognizer behandelt Gesten als eine Sammlung von Punkten im Raum und nicht als eine feste Sequenz. Erfordert Normalisierung der Punktwolken (Resampling, Längenanpassung, Skalierung, Verschiebung zum Ursprung). Für jeden Punkt im Testset wird der nächstgelegene Punkt in der Vorlagen-Geste gesucht. Nutzt Algorithmen wie 1NN (1-Nearest Neighbor) für die Klassifizierung.</li>
+                                <li><strong>$1:</strong> Für einfache, einstrichige Gesten (Unistroke).</li>
+                                <li><strong>$N:</strong> Für Gesten mit mehreren Strichen (Multistroke).</li>
+                                <li><strong>$Q:</strong> Eine schnelle Version von $P (ca. 142× schneller), optimiert für schnelle Erkennung.</li>
+                            </ul>
+                        </li>
                     </ul>
                 </div>
 
                 <h3 class="text-2xl font-bold mt-8 mb-4 text-slate-800">Gesten-Erhebung (Gesture Elicitation)</h3>
-                <p class="mb-4 text-slate-700">Ziel: Herausfinden, wie Nutzer intuitiv eine Geste für eine Aufgabe/System ausführen würden.</p>
+                <p class="mb-4 text-slate-700">Ziel: Herausfinden, wie Nutzer intuitiv eine Geste für eine Aufgabe oder ein System ausführen würden, um natürliche und leicht zu merkende Gestenvokabulare zu entwickeln.</p>
                 <ul class="space-y-2 list-disc list-inside text-slate-700">
-                    <li><strong>Methode:</strong> Probanden sehen den Effekt einer Geste und werden gebeten, die Geste auszuführen, die sie dafür halten.</li>
-                    <li><strong>Messung:</strong> Aufzeichnung der ausgeführten Gesten. Berechnung des <strong>Agreement Score</strong> (Konsensgrad unter Nutzern).</li>
-                    <li><strong>Bewertung:</strong> Prüfung, ob Gesten gut passen, einfach auszuführen sind und keine Konflikte haben.</li>
-                    <li><strong>Erforderliche Genauigkeit:</strong> Anwendungsabhängig (80-90% für Freizeit, >95% für sicherheitskritische Anwendungen). Zuverlässigkeit und Konsistenz sind entscheidend.</li>
+                    <li><strong>Methode:</strong> Probanden sehen den Effekt einer Geste (z.B. ein Objekt bewegt sich auf dem Bildschirm) und werden gebeten, die Geste auszuführen, von der sie glauben, dass sie diesen Effekt auslöst.</li>
+                    <li><strong>Messung:</strong> Aufzeichnung der ausgeführten Gesten von mehreren potenziellen Nutzern für eine bestimmte Aktion. Berechnung des <strong>Agreement Score</strong>, der den Grad der Übereinstimmung (Konsens) zwischen den Benutzern für eine bestimmte Geste misst. Ein hoher Agreement Score deutet auf eine intuitive Geste hin.</li>
+                    <li><strong>Bewertung der erhobenen Gesten:</strong> Prüfung, ob die Gesten gut passen, einfach auszuführen sind und keine Konflikte mit anderen Gesten haben.</li>
+                    <li><strong>Erforderliche Genauigkeit für einen erfolgreichen Gestenerkenner:</strong> Die notwendige Genauigkeit hängt stark von der Anwendung ab. Für Freizeit- oder Unterhaltungsanwendungen können Erkennungsraten von 80–90 % ausreichend sein. In sicherheitskritischen oder medizinischen Anwendungen sind hingegen über 95 % notwendig. Wichtig ist, dass der Gestenerkenner zuverlässig und konsistent arbeitet und Fehler für den Nutzer leicht erkennbar und korrigierbar sind.</li>
                 </ul>
             </section>
 
@@ -252,6 +315,7 @@
                 <p class="mb-8 text-slate-600">Diese Sektion behandelt die Grundlagen, Bestandteile, Herausforderungen und Designprinzipien von Sprachbenutzeroberflächen, die eine Interaktion per gesprochener Sprache ermöglichen.</p>
                  <div class="concept-box bg-slate-100 p-6 rounded-lg mb-6">
                     <h3 class="text-2xl font-bold mb-4 text-slate-800">Bestandteile eines VUI-Systems</h3>
+                    <p class="mb-4 text-slate-700">Ein VUI-System besteht aus mehreren Komponenten, die zusammenarbeiten, um gesprochene Sprache zu verstehen und darauf zu reagieren:</p>
                     <div class="flex flex-wrap gap-4 text-center">
                         <div class="flex-1 p-3 bg-slate-200 rounded">ASR<p class="text-xs font-light">(Speech to Text)</p></div>
                         <div class="p-3 text-2xl font-bold text-amber-600">&rarr;</div>
@@ -262,44 +326,57 @@
                         <div class="flex-1 p-3 bg-slate-200 rounded">TTS<p class="text-xs font-light">(Text to Speech)</p></div>
                     </div>
                     <ul class="space-y-2 list-disc list-inside text-slate-700 mt-4">
-                        <li><strong>Sonifikation:</strong> Zusätzliche akustische Feedbacks (z.B. Auditory Icons, Earcons), die nicht direkt Sprache sind.</li>
+                        <li><strong>Automatic Speech Recognition (ASR):</strong> Wandelt gesprochene Sprache (Audio-Input) in Text um. Nutzt neuronale Netze zur Analyse von Phonemen und zum Aufbau von Wörtern. Kann Konfidenzwerte für die Erkennung liefern.</li>
+                        <li><strong>Natural Language Understanding (NLU):</strong> Interpretiert die Bedeutung und Absicht des vom ASR erkannten Textes. Extrahiert Intents (Absichten) und Entitäten (Schlüsselinformationen) aus dem gesprochenen Satz. Kann ebenfalls Konfidenzwerte liefern.</li>
+                        <li><strong>Dialog Management:</strong> Steuert den Fluss der Konversation zwischen Nutzer und System. Es entscheidet, wie auf Nutzereingaben reagiert wird und welche Informationen als Nächstes benötigt werden, um das Ziel des Dialogs zu erreichen.</li>
+                        <li><strong>Text-to-Speech (TTS):</strong> Generiert gesprochene Antworten aus Text. Nutzt Sprachmodelle, die auf Sprachbeispielen von Sprechern basieren. Parameter wie Tonhöhe, Geschwindigkeit, Klangfarbe und Lautstärke können angepasst werden. Neuere TTS-Engines können auch Emotionen in die Sprachausgabe kodieren.</li>
+                        <li><strong>Sonifikation:</strong> Zusätzliche akustische Feedbacks, die nicht direkt Sprache sind, aber Informationen vermitteln.
+                            <ul class="ml-6 list-disc list-inside">
+                                <li><strong>Auditory Icons:</strong> Kurze Geräusche, die Objekte, Funktionen oder Aktionen repräsentieren und auf dem Vorwissen des Nutzers basieren (z.B. Papierknistern für Löschen).</li>
+                                <li><strong>Earcons:</strong> Abstrakte, synthetische und meist musikalische Töne oder Klangmuster, die in strukturierten Kombinationen verwendet werden können (z.B. Windows Startsound).</li>
+                                <li><strong>Spearcons:</strong> Gesprochene Phrasen, die so stark beschleunigt werden, dass sie nicht mehr als normale Sprache erkennbar sind, aber als akustisches Signal dienen (z.B. beschleunigtes "delete").</li>
+                            </ul>
+                        </li>
                     </ul>
                 </div>
-                 <h3 class="text-2xl font-bold mb-4 text-slate-800">Herausforderungen und Designprinzipien</h3>
+                <h3 class="text-2xl font-bold mb-4 text-slate-800">Herausforderungen und Designprinzipien</h3>
                 <div class="grid md:grid-cols-2 gap-6">
                     <div class="bg-slate-50 p-4 rounded-lg border border-slate-200">
                         <h4 class="font-bold text-lg text-amber-600">Herausforderungen</h4>
                         <ul class="space-y-2 list-disc list-inside text-slate-600 mt-2">
-                           <li><strong>Affordance:</strong> Nutzer wissen oft nicht, was sie sagen können.</li>
-                           <li><strong>Ambiguität:</strong> Sprachverständnis erfordert Kontext- und Weltwissen.</li>
-                           <li><strong>Pragmatik:</strong> Kontexteinbettung ist für Systeme schwierig.</li>
-                           <li><strong>Fehlertoleranz:</strong> Umgang mit Missverständnissen durch Wiederholung, Re-Prompting, „You can say …“.</li>
+                           <li><strong>Affordance:</strong> Nutzer wissen oft nicht, was sie sagen können oder welche Befehle verfügbar sind, da VUIs keine visuellen Hinweise bieten.</li>
+                           <li><strong>Ambiguität:</strong> Sprachverständnis erfordert Kontext- und Weltwissen, was für KI-Systeme schwierig ist (z.B. "it" in "The trophy would not fit in the brown suitcase because it was too big/small").</li>
+                           <li><strong>Pragmatik:</strong> Die Einbettung von Sprache in den Kontext der realen Welt und der Konversation ist für Systeme komplex (z.B. "black as my soul" im Kontext von Kaffee).</li>
+                           <li><strong>Fehlertoleranz:</strong> Umgang mit Missverständnissen oder fehlerhaften Eingaben ist entscheidend. Strategien: Wiederholung ("Can you repeat that?"), Re-Prompting (System wiederholt vorherigen Prompt), "You can say..." (System gibt Beispiel-Dialoge). Präferenz für "ask repeat" und "you can say" über Re-Prompt.</li>
+                           <li><strong>Rauschunterdrückung & Echo-Unterdrückung:</strong> Mikrofonsignale müssen von Hintergrundgeräuschen und Echos befreit werden, um die Spracherkennung zu verbessern.</li>
+                           <li><strong>Passagier-Interferenz-Kompensation (PIC):</strong> Speziell im Auto, um die Stimme des Fahrers von der des Beifahrers zu trennen.</li>
                         </ul>
                     </div>
                     <div class="bg-slate-50 p-4 rounded-lg border border-slate-200">
                         <h4 class="font-bold text-lg text-amber-600">Design von VUI</h4>
                         <ul class="space-y-2 list-disc list-inside text-slate-600 mt-2">
-                            <li>Nutzer informieren, was möglich ist und wo sie sich befinden.</li>
-                            <li>Konversation jederzeit abbrechen oder unterbrechen lassen.</li>
-                            <li>Nicht zu viele Optionen auf einmal nennen (max. 3, ggf. gruppieren).</li>
-                            <li>Multimodalität nutzen (z. B. kombiniert mit GUI).</li>
-                            <li>Reaktionszeiten: Zwischen 0–2 Sekunden optimal, bei Verzögerungen informieren.</li>
+                            <li><strong>Nutzerführung:</strong> Nutzer müssen informiert werden, was möglich ist und wo sie sich im Dialog befinden.</li>
+                            <li><strong>Kontrolle:</strong> Die Konversation muss jederzeit abbrechbar oder unterbrechbar sein (Barge-In).</li>
+                            <li><strong>Optionen begrenzen:</strong> Nicht mehr als drei verschiedene Optionen auf einmal nennen; längere Listen gruppieren und weitere Optionen auf Nachfrage anbieten.</li>
+                            <li><strong>Multimodalität:</strong> Nutzung von Kombinationen mit anderen Schnittstellen (z.B. GUI) zur Verbesserung der Interaktion, um Stärken zu nutzen und Schwächen auszugleichen.</li>
+                            <li><strong>Reaktionszeiten:</strong> Optimal zwischen 0–2 Sekunden. Bei längeren Verzögerungen (z.B. durch Cloud-Anfragen, Netzwerkprobleme) sollte das System den Nutzer informieren ("let me look that up for you").</li>
                         </ul>
                         <h4 class="font-bold text-lg text-amber-600 mt-4">"Voice-first"-Designprinzipien</h4>
                          <ul class="space-y-2 list-disc list-inside text-slate-600 mt-2">
-                           <li><strong>Anpassungsfähig:</strong> Nutzer in eigenen Worten sprechen lassen.</li>
-                           <li><strong>Persönlich:</strong> Individualisierte Ansprache.</li>
-                           <li><strong>Immer verfügbar:</strong> Optionen flach strukturiert.</li>
-                           <li><strong>Relational:</strong> Gesprächsähnlicher Dialog statt reiner Befehlsstil.</li>
+                           <li><strong>Anpassungsfähig:</strong> Das System sollte Nutzer in ihren eigenen Worten sprechen lassen, anstatt starre Befehle zu erzwingen.</li>
+                           <li><strong>Persönlich:</strong> Individualisierte Ansprache des Nutzers, um eine natürlichere Interaktion zu ermöglichen.</li>
+                           <li><strong>Immer verfügbar:</strong> Optionen sollten flach strukturiert sein, um schnell und ohne tiefe Menüführung erreichbar zu sein.</li>
+                           <li><strong>Relational:</strong> Der Dialog sollte gesprächsähnlich sein und nicht nur aus Befehlen und Antworten bestehen.</li>
                         </ul>
                     </div>
                 </div>
                 <div class="concept-box bg-slate-100 p-6 rounded-lg mt-6">
                     <h3 class="text-2xl font-bold mb-4 text-slate-800">Vertrauen & UX</h3>
                     <ul class="space-y-2 list-disc list-inside text-slate-700">
-                        <li><strong>Bestätigungen:</strong> Explizit/implizit erhöhen Vertrauen.</li>
-                        <li><strong>Persönlichkeit:</strong> Anthropomorphe Stimmen und passende Persönlichkeiten verbessern Nutzererfahrung.</li>
-                        <li><strong>Kognitiver Kontext:</strong> Anpassung an den kognitiven Kontext des Nutzers (z. B. beim Fahren).</li>
+                        <li><strong>Bestätigungen:</strong> Explizite (z.B. "Das war eine Überweisung von X nach Y, korrekt?") oder implizite (direktes Ausführen der Aktion) Bestätigungen des Systemverständnisses erhöhen das Vertrauen des Nutzers. Kontextuelle Bestätigungen sind besser als explizite.</li>
+                        <li><strong>Persönlichkeit:</strong> Anthropomorphe Stimmen und passende Persönlichkeiten des VUI-Systems können die Nutzererfahrung verbessern und das Vertrauen erhöhen. Studien zeigen, dass eine passende Persönlichkeit des Sprachassistenten die Sympathie und das Vertrauen steigert.</li>
+                        <li><strong>Kognitiver Kontext:</strong> Anpassung an den kognitiven Kontext des Nutzers ist entscheidend (z.B. einfachere, prägnantere Interaktion beim Autofahren mit hoher kognitiver Last, um Ablenkung zu minimieren).</li>
+                        <li><strong>Wake Word:</strong> Wird verwendet, um von Offline- (grundlegende Spracherkennung, geringer Verbrauch) zu Online-Hören (komplexe Spracherkennung in der Cloud) zu wechseln.</li>
                     </ul>
                 </div>
             </section>
@@ -311,45 +388,65 @@
                 <div class="concept-box bg-slate-100 p-6 rounded-lg mb-6">
                     <h3 class="text-2xl font-bold mb-4 text-slate-800">Grundlagen von LLMs</h3>
                      <ul class="space-y-3 list-disc list-inside text-slate-700">
-                        <li><strong>Definition:</strong> Generative Pretrained Transformer, trainiert auf riesigen Textmengen (~1 Petabyte Daten).</li>
-                        <li><strong>Trainingsdaten:</strong> Umfassen Bücher, Websites, Code, E-Mails, Videos u.v.m.</li>
-                        <li><strong>Kontextfenster:</strong> Maximale Menge an Informationen (Tokens), die ein Modell gleichzeitig verarbeiten kann (z.B. GPT-4 hat 8–32k Token, GPT-4o bis 128k Tokens).</li>
-                        <li><strong>Architektur:</strong> Typischerweise Decoder-only Transformer mit Embeddings, Masked Multi-Self-Attention, Feed-Forward-Netzwerk und Vorhersage des nächsten Tokens.</li>
-                        <li><strong>System Prompts:</strong> Unsichtbare „Hidden Instructions“ steuern Verhalten & Tonalität des Modells.</li>
+                        <li><strong>Definition:</strong> Generative Pretrained Transformer, trainiert auf riesigen Textmengen (geschätzt ~1 Petabyte Daten).</li>
+                        <li><strong>Trainingsdaten:</strong> Umfassen Bücher, Websites, Code, E-Mails, Videos u.v.m. (z.B. Library of Congress: 32 Mio. Bücher, ~20 TB; GPT-4 Trainingsdaten: ~1 Petabyte, ~64 Mio. USD Kosten).</li>
+                        <li><strong>Kontextfenster:</strong> Maximale Menge an Informationen (Tokens), die ein Modell gleichzeitig als Eingabe verarbeiten und im Gedächtnis behalten kann (z.B. GPT-4 hat 8–32k Token Kontextfenster, GPT-4o bis 128k Tokens). Ein Token kann ein Wortteil, ein Wort oder ein Satzzeichen sein.</li>
+                        <li><strong>Architektur:</strong> Typischerweise Decoder-only Transformer.
+                            <ul class="ml-6 space-y-2 mt-2">
+                                <li><strong>Text & Position Embed:</strong> Konvertiert jedes Eingabetoken in einen Vektor und fügt eine Positionskodierung hinzu, um die Wortreihenfolge darzustellen.</li>
+                                <li><strong>Masked Multi-Head Self-Attention:</strong> Ermöglicht dem Modell, bei der Verarbeitung eines Tokens den Kontext aller vorherigen Tokens zu berücksichtigen, während zukünftige Positionen maskiert werden.</li>
+                                <li><strong>Layer Norm:</strong> Wendet Layer Normalization an.</li>
+                                <li><strong>Feed Forward:</strong> Ein vollständig verbundenes Feed-Forward-Netzwerk, das unabhängig auf jede Position angewendet wird.</li>
+                                <li><strong>Text Prediction:</strong> Eine lineare Schicht, gefolgt von einer Softmax-Funktion, um das wahrscheinlichste nächste Token in der Sequenz vorherzusagen.</li>
+                            </ul>
+                        </li>
+                        <li><strong>System Prompts:</strong> Unsichtbare „Hidden Instructions“ oder Anweisungen, die das Verhalten, den Stil und die Tonalität des Modells steuern, ohne dass der Nutzer sie direkt in seiner Eingabe sieht. Sie definieren die "Rolle" des LLM.</li>
                     </ul>
                 </div>
 
                 <h3 class="text-2xl font-bold mb-4 text-slate-800">Interaktion mit LLMs (Prompting)</h3>
                 <ul class="space-y-2 list-disc list-inside text-slate-700 mb-6">
-                    <li><strong>Prompting:</strong> Ergebnisqualität hängt stark von der Formulierung des Prompts ab.</li>
-                    <li><strong>Bestandteile eines guten Prompts:</strong> Instruction, Context, Input Data, Output Indicator.</li>
-                    <li>Präzise Anweisungen verbessern die Ergebnisse.</li>
+                    <li><strong>Prompting:</strong> Die Qualität der Modellergebnisse hängt stark von der Formulierung des Prompts (der Eingabeaufforderung) ab. Es ist eine Kunst und Wissenschaft, effektive Prompts zu schreiben.</li>
+                    <li><strong>Bestandteile eines guten Prompts:</strong> Instruction (was zu tun ist), Context (Hintergrundinfo), Input Data (Frage/Daten), Output Indicator (gewünschtes Format).</li>
+                    <li>Präzise Anweisungen verbessern die Ergebnisse erheblich, da sie dem Modell klare Grenzen und Ziele setzen.</li>
                 </ul>
                 <h4 class="font-bold text-lg text-amber-600 mb-2">Prompting-Ansätze (Prompt Engineering)</h4>
                 <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                     <div class="bg-slate-50 p-4 rounded-lg border border-slate-200">
                         <h4 class="font-bold text-lg text-amber-600">Zero-Shot</h4>
-                        <p class="text-slate-600 mt-1">Einfaches Fragen ohne Beispiele.</p>
+                        <p class="text-slate-600 mt-1">Einfaches Stellen einer Frage ohne Beispiele. Das Modell muss die Aufgabe allein aus seinem Training ableiten.</p>
                     </div>
                      <div class="bg-slate-50 p-4 rounded-lg border border-slate-200">
                         <h4 class="font-bold text-lg text-amber-600">Few-Shot</h4>
-                        <p class="text-slate-600 mt-1">Beispiele und Erklärungen im Prompt mitgeben.</p>
+                        <p class="text-slate-600 mt-1">Bereitstellung von einigen Beispielen und Erklärungen im Prompt, um das Modell anzuleiten und das gewünschte Format oder Verhalten zu demonstrieren.</p>
                     </div>
                     <div class="bg-slate-50 p-4 rounded-lg border border-slate-200">
                         <h4 class="font-bold text-lg text-amber-600">Chain-of-Thought (CoT)</h4>
-                        <p class="text-slate-600 mt-1">Anleiten des Modells zur schrittweisen Begründung seiner Antwort.</p>
+                        <p class="text-slate-600 mt-1">Anleiten des Modells zur schrittweisen Begründung seiner Antwort. Verbessert die Leistung bei komplexen Aufgaben erheblich, da das Modell seine "Gedanken" explizit macht.</p>
                     </div>
                     <div class="bg-slate-50 p-4 rounded-lg border border-slate-200">
                         <h4 class="font-bold text-lg text-amber-600">Tree-of-Thought (ToT)</h4>
-                        <p class="text-slate-600 mt-1">Erweiterung von CoT; nutzt Baumstruktur von Gedankenpfaden zur Selbstreflexion.</p>
+                        <p class="text-slate-600 mt-1">Erweiterte Form von CoT; nutzt eine Baumstruktur von Gedankenpfaden. Das Modell generiert mehrere Gedankengänge, bewertet sie und wählt den vielversprechendsten Pfad zur Lösung. Ermöglicht Selbstreflexion.</p>
                     </div>
                 </div>
                 <div class="concept-box bg-slate-100 p-6 rounded-lg mt-6">
                     <h3 class="text-2xl font-bold mb-4 text-slate-800">Leistungsaspekte & Mensch-KI-Integration</h3>
                     <ul class="space-y-2 list-disc list-inside text-slate-700">
-                        <li><strong>Ressourcenverbrauch:</strong> LLMs benötigen viele Ressourcen (Kosten, Nachhaltigkeit). Kontextlängen sind begrenzt.</li>
-                        <li><strong>Mensch-KI-Integration:</strong> Kombination kann bei Entscheidungsaufgaben schlechter, bei kreativen Aufgaben besser sein als Mensch oder KI allein.</li>
-                        <li><strong>Entwicklung der Benutzerinteraktion:</strong> Von Kommandozeilen bis zu immersiver 3D-Interaktion. Warnung: "Magische Textbox" ist keine gute UI – gutes Design erfordert Kontext & Einbettung.</li>
+                        <li><strong>Ressourcenverbrauch:</strong> LLMs benötigen enorme Rechenressourcen (GPUs, viel RAM) für Training und Inferenz, was hohe Kosten und erhebliche Nachhaltigkeitsfragen (Energieverbrauch) aufwirft. ("Sam Altman reveals how much saying 'Please and 'Thank you' to ChatGPT really costs" - Tens of millions annually in electricity).</li>
+                        <li><strong>Kontextlängen:</strong> Sind begrenzt; längere Kontexte erfordern exponentiell mehr Rechenleistung und verursachen höhere Kosten.</li>
+                        <li><strong>Mensch-KI-Integration:</strong>
+                            <ul class="ml-6 list-disc list-inside">
+                                <li>Bei **Entscheidungsaufgaben** kann die Kombination manchmal schlechter sein als Mensch oder KI allein, wenn die Zusammenarbeit nicht optimal gestaltet ist.</li>
+                                <li>Bei **kreativen Aufgaben** (z.B. Brainstorming, Design) kann die Kombination jedoch besser sein als beide einzeln, da sie sich gegenseitig inspirieren und ergänzen.</li>
+                                <li>Zukünftige Forschung konzentriert sich auf die Entwicklung effektiver Prozesse für die Zusammenarbeit zwischen Mensch und KI.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Entwicklung der Benutzerinteraktion:</strong>
+                            <ul class="ml-6 list-disc list-inside">
+                                <li><strong>HCI-Äras:</strong> Mainframe (Kommandozeilen), PC (GUI), Mobile (Multimodal), Mixed Reality (Immersive 3D, BCI).</li>
+                                <li>Warnung: Eine "magische Textbox" (reine Texteingabe ohne Kontext oder Steuerung) ist keine gute UI. Gutes Design erfordert Kontext und eine sinnvolle Einbettung der LLM-Funktionalität in die Anwendung.</li>
+                            </ul>
+                        </li>
                         <li><strong>Zukunft der LLM-Interfaces:</strong> Fokus auf Kontextbereitstellung, sinnvolle Integration von KI-Antworten und zusätzlichen Eingaben zur Steuerung.</li>
                     </ul>
                 </div>
@@ -363,41 +460,50 @@
                 <div class="concept-box bg-slate-100 p-6 rounded-lg mb-6">
                     <h3 class="text-2xl font-bold mb-4 text-slate-800">Einführung & Potenziale</h3>
                     <ul class="space-y-2 list-disc list-inside text-slate-700">
-                        <li><strong>Definition:</strong> Generative AI erzeugt neue Inhalte (Bilder, Texte, Audio, 3D-Modelle, Videos) aus Daten.</li>
-                        <li><strong>Bekannte Systeme:</strong> DALL-E 2/3, OpenAI Sora, Stable Diffusion, Midjourney, Point-E, DreamFusion.</li>
-                        <li><strong>Potenziale:</strong> Kreativität & Innovation, Schließen von Datenlücken, sozialer Impact (personalisierte Inhalte), Fortschritte Richtung Künstliche Allgemeine Intelligenz.</li>
+                        <li><strong>Definition:</strong> Generative AI ist ein Teilbereich der Künstlichen Intelligenz, der darauf spezialisiert ist, neue, originelle Inhalte (die nicht direkt in den Trainingsdaten vorhanden waren) wie Bilder, Texte, Audio, 3D-Modelle und Videos aus vorhandenen Daten zu erzeugen. Sie lernt die zugrunde liegende Verteilung der Daten, um ähnliche, aber neue Daten zu produzieren.</li>
+                        <li><strong>Bekannte Systeme:</strong>
+                            <ul class="ml-6 list-disc list-inside">
+                                <li><strong>Bilder:</strong> DALL-E 2/3, Midjourney, Stable Diffusion.</li>
+                                <li><strong>Videos:</strong> OpenAI Sora.</li>
+                                <li><strong>3D-Modelle:</strong> Point-E (Text zu Punktwolke), DreamFusion (Text zu 3D).</li>
+                                <li><strong>Audio/Musik:</strong> VALL-E (Text zu Sound).</li>
+                                <li><strong>Multimodal:</strong> CoDi (generiert beliebige Kombinationen aus Video, Bild, Audio, Text).</li>
+                            </ul>
+                        </li>
+                        <li><strong>Potenziale:</strong> Kreativität & Innovation, Schließen von Datenlücken (Data Augmentation), sozialer Impact (personalisierte Inhalte), Fortschritte Richtung Künstliche Allgemeine Intelligenz (AGI).</li>
                     </ul>
                 </div>
 
                 <h3 class="text-2xl font-bold mb-4 text-slate-800">Technische Grundlagen</h3>
+                <p class="mb-4 text-slate-700">Generative AI basiert auf Deep Learning mit komplexen neuronalen Netzen. Typische Architekturen umfassen:</p>
                 <div class="grid md:grid-cols-3 gap-6 mb-6">
                     <div class="bg-slate-50 p-4 rounded-lg border border-slate-200">
                         <h4 class="font-bold text-lg text-amber-600">Autoencoder</h4>
-                        <p class="text-slate-600 mt-1">Lernen eine komprimierte (latente) Darstellung von Daten zur Generierung.</p>
+                        <p class="text-slate-600 mt-1">Lernen eine komprimierte (latente) Darstellung von Daten (Encoder) und können daraus neue Daten generieren (Decoder). Variations-Autoencoder (VAEs) sind eine Variante zur Generierung.</p>
                     </div>
                      <div class="bg-slate-50 p-4 rounded-lg border border-slate-200">
                         <h4 class="font-bold text-lg text-amber-600">GANs (Generative Adversarial Networks)</h4>
-                        <p class="text-slate-600 mt-1">Generator und Diskriminator trainieren im Wettbewerb, um realistische Daten zu erzeugen (z.B. CycleGAN, StyleGAN).</p>
+                        <p class="text-slate-600 mt-1">Bestehen aus zwei neuronalen Netzen, die im Wettbewerb trainieren: ein Generator erzeugt Daten, ein Diskriminator versucht, echte von generierten Daten zu unterscheiden. Dadurch lernt der Generator, immer realistischere Daten zu erzeugen. Beispiele: CycleGAN (Bild-zu-Bild-Übersetzung ohne gepaarte Daten), StyleGAN (kontrollierte Generierung von realistischen Gesichtern).</p>
                     </div>
                      <div class="bg-slate-50 p-4 rounded-lg border border-slate-200">
                         <h4 class="font-bold text-lg text-amber-600">Diffusionsmodelle</h4>
-                        <p class="text-slate-600 mt-1">Lernen, Rauschen schrittweise aus Daten zu entfernen, um neue, realistische Daten zu erzeugen (z.B. Stable Diffusion).</p>
+                        <p class="text-slate-600 mt-1">Lernen, Rauschen schrittweise aus Daten zu entfernen. Im Generierungsprozess beginnt das Modell mit zufälligem Rauschen und "denoist" es iterativ, um ein realistisches Bild oder anderen Inhalt zu erzeugen (z.B. Stable Diffusion für hochwertige Bilder).</p>
                     </div>
                 </div>
 
                 <h3 class="text-2xl font-bold mb-4 text-slate-800">Praktische Werkzeuge & Nutzerinteraktion</h3>
                 <ul class="space-y-2 list-disc list-inside text-slate-700 mb-6">
-                    <li><strong>Tools:</strong> ComfyUI, ControlNet, Nvidia Canvas, Unity Muse.</li>
+                    <li><strong>Tools:</strong> ComfyUI (visueller Workflow-Editor), ControlNet (präzise Steuerung von Diffusionsmodellen durch zusätzliche Eingaben wie Skizzen oder Posen), Nvidia Canvas (generiert Landschaften aus Skizzen), Unity Muse (KI-Tools für Spieleentwicklung).</li>
                     <li><strong>Anwendungen:</strong> Bilder, Videos, Porträts, immersive Umgebungen.</li>
-                    <li><strong>Entwicklung von Interfaces:</strong> Von Slidern (GANSlider) über Drag-and-Drop-Manipulation (DragGAN) bis zu immersiver Latent Space Navigation.</li>
+                    <li><strong>Entwicklung von Interfaces:</strong> Die Interaktion hat sich von einfachen Slidern (GANSlider, um Attribute zu steuern) über Drag-and-Drop-Manipulation (DragGAN, um Objekte in Bildern zu verändern) bis hin zu immersiver Latent Space Navigation entwickelt.</li>
                     <li><strong>Fokus bei Interfaces:</strong> Personalisierung, Kontrolle & Feedback.</li>
                 </ul>
 
                 <div class="concept-box bg-slate-100 p-6 rounded-lg">
                     <h3 class="text-2xl font-bold mb-4 text-slate-800">Herausforderungen & Zukunft</h3>
                     <ul class="space-y-3 list-disc list-inside text-slate-700">
-                        <li><strong>Herausforderungen:</strong> Semantisches Verständnis, Kontrolle & Steuerung, Trainingsdaten (Urheberrecht, Fairness, Bias), Nutzerakzeptanz, Missbrauch (Deepfakes).</li>
-                        <li><strong>Zukunft:</strong> Höhere Qualität und bessere Steuerbarkeit, stärkere Personalisierung, mehr ethische & rechtliche Regulierung, potenzielle gesellschaftliche Folgen (Jobveränderungen).</li>
+                        <li><strong>Herausforderungen:</strong> Semantisches Verständnis (KI interpretiert Inhalte nicht immer korrekt), Kontrolle & Steuerung (Präzision der Ergebnisse), Trainingsdaten (Urheberrecht, Fairness, Bias), Nutzerakzeptanz (Widerstand von Künstlern), Missbrauch (Deepfakes, Desinformation).</li>
+                        <li><strong>Zukunft:</strong> Höhere Qualität und bessere Steuerbarkeit der Ergebnisse, stärkere Personalisierung und proaktive Anpassung an Nutzer, zunehmende ethische & rechtliche Regulierung, potenzielle gesellschaftliche Folgen (Jobveränderungen).</li>
                     </ul>
                 </div>
             </section>
@@ -413,8 +519,8 @@
                         <li><strong>Ziel:</strong> Bestätigung der Identität einer Person.</li>
                         <li><strong>Methoden:</strong>
                             <ul class="ml-6 space-y-2 mt-2">
-                                <li><strong>Wissen:</strong> „Etwas, das du weißt“ (Passwort, PIN).</li>
-                                <li><strong>Besitz:</strong> „Etwas, das du hast“ (Token, Karte).</li>
+                                <li><strong>Wissen:</strong> „Etwas, das du weißt“ (Passwort, PIN). Herausforderungen: Häufige Passwörter sind unsicher, Benutzer-definierte PINs können schwach sein ("Mein Hochzeitstag"). Balance zwischen Sicherheit und Usability (Effizienz, Effektivität, Memorability, Satisfaction, Learnability) ist entscheidend.</li>
+                                <li><strong>Besitz:</strong> „Etwas, das du hast“ (Hardware-Token, Software-Token, Chipkarte).</li>
                                 <li><strong>Biometrie:</strong> „Etwas, das du bist“ (körperlich oder verhaltensbasiert).</li>
                             </ul>
                         </li>
@@ -426,18 +532,36 @@
                     <div class="bg-slate-50 p-4 rounded-lg border border-slate-200">
                         <h4 class="font-bold text-lg text-amber-600">Biometrie-Typen</h4>
                         <ul class="space-y-2 list-disc list-inside text-slate-600 mt-2">
-                            <li><strong>Physiologisch:</strong> Fingerabdruck (seit 1892, weit verbreitet, auch implizit möglich), Venenmuster (z.B. mit Thermalkameras), Fußabdruck (per Wärmebild), ECG (Herzschlagmuster).</li>
-                            <li><strong>Verhaltensbasiert:</strong> Bewegungsmuster (VR/AR-Tracking, HMD, Handbewegungen), Gang (variiert stark je nach Umgebung und Zustand), Blickverhalten (Gaze Tracking).</li>
-                            <li><strong>Funktional:</strong> Körperreflexionen, Kopfstruktur (z. B. SkullConduct - Schallleitung durch den Schädel).</li>
+                            <li><strong>Physiologisch:</strong> Basierend auf einzigartigen körperlichen Merkmalen.
+                                <ul class="ml-6 list-disc list-inside">
+                                    <li><strong>Fingerabdruck:</strong> Seit 1892 in der Forensik, heute weit verbreitet in Smartphones/Laptops. Meist explizite Authentifizierung, aber auch implizit möglich (z.B. Fiberio-Touchscreen). Prozess: Sensor -> Bild -> Merkmale (Minutien) -> Vergleich.</li>
+                                    <li><strong>Venenmuster:</strong> Einzigartige Muster der Blutgefäße, z.B. mit Thermalkameras erfasst.</li>
+                                    <li><strong>Fußabdruck:</strong> Ebenfalls per Wärmebild (HotFoot-Projekt).</li>
+                                    <li><strong>ECG (Elektrokardiogramm):</strong> Herzschlagmuster als biometrisches Merkmal.</li>
+                                </ul>
+                            </li>
+                            <li><strong>Verhaltensbasiert:</strong> Basierend auf einzigartigen Verhaltensweisen.
+                                <ul class="ml-6 list-disc list-inside">
+                                    <li><strong>Bewegungsmuster:</strong> Z.B. Körperbewegungen in VR/AR (HMD, Handbewegungen).</li>
+                                    <li><strong>Gang (Gait):</strong> Das individuelle Bewegungsmuster beim Gehen. Variiert stark je nach Umgebung und Zustand (z.B. Untergrund, Tragen von Objekten, Telefonieren).</li>
+                                    <li><strong>Blickverhalten (Gaze Tracking):</strong> Analyse der Augenbewegungen.</li>
+                                </ul>
+                            </li>
+                            <li><strong>Funktional:</strong> Basierend auf der Reaktion des Körpers auf einen Stimulus.
+                                <ul class="ml-6 list-disc list-inside">
+                                    <li><strong>Körperreflexionen:</strong> Reaktion des Körpers auf ein Signal.</li>
+                                    <li><strong>Kopfstruktur (SkullConduct):</strong> Nutzt Schallleitung durch den Schädel. Audio wird abgespielt, durch den Schädel geleitet und vom Mikrofon aufgenommen. Die einzigartige Frequenzantwort des Schädels dient als "Fingerabdruck" zur Identifikation.</li>
+                                </ul>
+                            </li>
                         </ul>
                     </div>
                     <div class="bg-slate-50 p-4 rounded-lg border border-slate-200">
                         <h4 class="font-bold text-lg text-amber-600">Biometrische Systeme: Aufbau</h4>
                         <ol class="list-decimal list-inside text-slate-600 mt-2 space-y-1">
-                            <li><strong>Sensor:</strong> Nimmt das Sample auf.</li>
-                            <li><strong>Feature-Extraktor:</strong> Extrahiert Merkmale (z. B. Minutien bei Fingerabdrücken).</li>
-                            <li><strong>Matching-Modul:</strong> Vergleicht das Sample mit gespeicherten Templates.</li>
-                            <li><strong>Datenbank:</strong> Enthält bekannte Templates.</li>
+                            <li><strong>Sensor:</strong> Nimmt das biometrische Sample auf (z.B. Fingerabdruckscanner, Kamera, Mikrofon).</li>
+                            <li><strong>Feature-Extraktor:</strong> Extrahiert einzigartige Merkmale aus dem Sample (z. B. Minutien bei Fingerabdrücken, MFCC-Features bei Audio).</li>
+                            <li><strong>Matching-Modul:</strong> Vergleicht die extrahierten Merkmale des aktuellen Samples mit gespeicherten Templates in der Datenbank.</li>
+                            <li><strong>Datenbank:</strong> Enthält bekannte Templates (Referenzdaten) der registrierten Nutzer.</li>
                         </ol>
                     </div>
                 </div>
@@ -447,27 +571,36 @@
                     <div class="bg-slate-50 p-4 rounded-lg border border-slate-200">
                         <h4 class="font-bold text-lg text-amber-600">Modi</h4>
                         <ul class="space-y-2 list-disc list-inside text-slate-600 mt-2">
-                            <li><strong>Verifikation:</strong> Benutzer behauptet eine Identität, System prüft (1:1 Vergleich).</li>
-                            <li><strong>Identifikation:</strong> System sucht passende Identität ohne explizite Angabe (1:N Vergleich).</li>
+                            <li><strong>Verifikation (1:1 Vergleich):</strong> Benutzer behauptet eine Identität (z.B. durch Eingabe eines Benutzernamens), und das System prüft, ob das biometrische Sample zu dieser behaupteten Identität passt.</li>
+                            <li><strong>Identifikation (1:N Vergleich):</strong> Der Benutzer gibt nur ein biometrisches Sample an, und das System versucht, eine passende Identität aus einer Datenbank von N bekannten Identitäten zu finden.</li>
                         </ul>
                     </div>
                     <div class="bg-slate-50 p-4 rounded-lg border border-slate-200">
-                        <h4 class="font-bold text-lg text-amber-600">Leistungsmetriken</h4>
+                        <h4 class="font-bold text-lg text-amber-600">Leistungsmetriken (für biometrische Systeme)</h4>
                         <ul class="space-y-2 list-disc list-inside text-slate-600 mt-2">
-                            <li><strong>True Positive Rate (TPR):</strong> Trefferquote (TP / (TP + FN)).</li>
-                            <li><strong>False Positive Rate (FPR) / FAR:</strong> Falsche Akzeptanz.</li>
-                            <li><strong>False Negative Rate (FNR) / FRR:</strong> Falsche Ablehnung.</li>
-                            <li><strong>Accuracy (ACC):</strong> (TP + TN) / Gesamt.</li>
+                            <li><strong>True Positive Rate (TPR) / Trefferquote:</strong> Anteil der korrekt akzeptierten legitimen Nutzer (TP / (TP + FN)).</li>
+                            <li><strong>False Positive Rate (FPR) / FAR (False Acceptance Rate):</strong> Anteil der fälschlicherweise akzeptierten unberechtigten Nutzer (FP / (FP + TN)).</li>
+                            <li><strong>False Negative Rate (FNR) / FRR (False Rejection Rate):</strong> Anteil der fälschlicherweise abgelehnten legitimen Nutzer (FN / (FN + TP)).</li>
+                            <li><strong>Accuracy (ACC):</strong> Gesamtgenauigkeit des Systems ((TP + TN) / Gesamtanzahl der Fälle).</li>
+                            <li><strong>Equal Error Rate (EER):</strong> Der Punkt, an dem FPR und FNR gleich sind. Ein niedriger EER-Wert zeigt eine gute Systemleistung an.</li>
                         </ul>
                     </div>
                 </div>
 
                 <div class="concept-box bg-slate-100 p-6 rounded-lg mt-6">
-                    <h3 class="text-2xl font-bold mb-4 text-slate-800">Zukünftige Authentifizierung & Herausforderungen</h3>
+                    <h3 class="2xl font-bold mb-4 text-slate-800">Zukünftige Authentifizierung & Herausforderungen</h3>
                     <ul class="space-y-3 list-disc list-inside text-slate-700">
-                        <li><strong>Zukünftige Authentifizierung (Implizit):</strong> Nutzer müssen nichts aktiv tun, kontinuierliche Überwachung, privat (Datenschutz), ubiquitär (überall einsetzbar).</li>
-                        <li><strong>Herausforderungen:</strong> Biometrie kann sich über Zeit ändern, hohe Varianz zwischen Sessions, Blackbox-Problematik bei KI-Modellen, Datenschutz (Kommunikation impliziter Authentifizierung).</li>
-                        <li><strong>Wichtige Zitate:</strong> "People often represent the weakest link in the security chain." (B. Schneier)</li>
+                        <li><strong>Zukünftige Authentifizierung (Implizit):</strong> Ziel ist, dass Nutzer nichts aktiv tun müssen. Authentifizierung erfolgt kontinuierlich im Hintergrund, ist privat (Datenschutz muss gewahrt bleiben) und ubiquitär (überall einsetzbar).</li>
+                        <li><strong>Herausforderungen:</strong>
+                            <ul class="ml-6 list-disc list-inside">
+                                <li>Biometrie kann sich über Zeit ändern (z.B. Gangmuster, physiologische Merkmale).</li>
+                                <li>Hohe Varianz zwischen Sessions (Erkennung kann von einer Sitzung zur nächsten variieren).</li>
+                                <li>Blackbox-Problematik bei KI-Modellen (schwer zu verstehen, wie Entscheidungen getroffen werden).</li>
+                                <li>Datenschutz: Wie kommuniziert man implizite Authentifizierung transparent und datenschutzkonform?</li>
+                                <li>Unterschiede zwischen Labor- und Feldstudien sind erheblich.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Wichtige Zitate:</strong> "People often represent the weakest link in the security chain." (B. Schneier) – Menschen sind oft das anfälligste Glied in der Sicherheitskette.</li>
                     </ul>
                 </div>
             </section>
@@ -480,37 +613,39 @@
                 <div class="concept-box bg-slate-100 p-6 rounded-lg mb-6">
                     <h3 class="text-2xl font-bold mb-4 text-slate-800">Definitionen & Quellen von Bias</h3>
                     <ul class="space-y-3 list-disc list-inside text-slate-700">
-                        <li><strong>Algorithmic Bias:</strong> Unbegründete und/oder unangemessene Verzerrungen in den Ergebnissen eines algorithmischen Systems (IEEE P7003).</li>
+                        <li><strong>Algorithmic Bias:</strong> Unbegründete und/oder unangemessene Verzerrungen in den Ergebnissen eines algorithmischen Systems (Definition nach IEEE P7003 Standard).</li>
                         <li><strong>Bias kann stammen aus:</strong>
                             <ul class="ml-6 space-y-2 mt-2">
-                                <li><strong>Daten:</strong> Z. B. Instagram-Bilder oder Tweets können gesellschaftliche Vorurteile enthalten.</li>
-                                <li><strong>Algorithmen:</strong> Verstärken bestehende Stereotype, wenn Trainingsdaten verzerrt sind.</li>
-                                <li><strong>Interaktion:</strong> Systeme behandeln Nutzergruppen ungleich (z. B. Gesichtserkennung bei People of Color).</li>
+                                <li><strong>Daten (Data Bias):</strong> Trainingsdaten können gesellschaftliche Vorurteile oder Ungleichheiten widerspiegeln (z.B. Instagram-Bilder, Tweets).</li>
+                                <li><strong>Algorithmen (Algorithmic Bias):</strong> Algorithmen können bestehende Stereotype verstärken oder neue Verzerrungen einführen, wenn Trainingsdaten verzerrt sind.</li>
+                                <li><strong>Interaktion (Interaction Bias):</strong> Systeme behandeln Nutzergruppen ungleich aufgrund der Art der Interaktion.</li>
                             </ul>
                         </li>
+                        <li><strong>Bias in Artificial Neurons:</strong> Ein Bias-Wert in einem künstlichen Neuron verschiebt die Aktivierungsfunktion und ermöglicht es dem Neuron, auch bei Null-Eingaben zu feuern oder eine bestimmte Schwelle zu erreichen. Dies ist ein technischer Parameter, der aber im Kontext von Algorithmic Bias relevant werden kann, wenn er ungleich angewendet wird.</li>
                     </ul>
                 </div>
 
-                <h3 class="text-2xl font-bold mb-4 text-slate-800">Beispiele & Arten von Bias</h3>
+                <h3 class="2xl font-bold mb-4 text-slate-800">Beispiele & Arten von Bias</h3>
                 <div class="grid md:grid-cols-2 gap-6 mb-6">
                     <div class="bg-slate-50 p-4 rounded-lg border border-slate-200">
                         <h4 class="font-bold text-lg text-amber-600">Beispiele für Bias</h4>
                         <ul class="space-y-2 list-disc list-inside text-slate-600 mt-2">
-                            <li>Microsoft Tay (Chatbot lernt rassistische Sprache von Twitter).</li>
-                            <li>Google Vision (Klassifiziert gleiche Bilder unterschiedlich nach Hautfarbe; erkennt "Gun" statt "Monocular" bei dunkler Haut).</li>
-                            <li>Google Translate (Geschlechter-Bias in Übersetzungen).</li>
-                            <li>Amazon Recruiting Tool (Bias gegen Frauen).</li>
-                            <li>Pulse Oximeter (Ungenauigkeit bei Menschen mit dunkler Hautfarbe).</li>
-                            <li>Voice Assistants (Typisch weiblich und unterwürfig konzipiert; können sexistisches Verhalten induzieren).</li>
-                            <li>Co-Writing mit Meinung-behafteten LLMs beeinflusst Nutzermeinung.</li>
+                            <li><strong>Microsoft Tay:</strong> Chatbot lernt rassistische und sexistische Sprache von Twitter-Interaktionen.</li>
+                            <li><strong>Google Vision:</strong> Klassifiziert gleiche Bilder unterschiedlich nach Hautfarbe (z.B. erkennt "Gun" statt "Monocular" bei dunkler Haut).</li>
+                            <li><strong>Google Translate:</strong> Zeigt Geschlechter-Bias in Übersetzungen (z.B. "Der Arzt" vs. "Die Krankenschwester").</li>
+                            <li><strong>Amazon Recruiting Tool:</strong> Zeigte Bias gegen Frauen bei der Bewerberauswahl.</li>
+                            <li><strong>Pulse Oximeter:</strong> Ungenauigkeit bei der Sauerstoffmessung bei Menschen mit dunkler Hautfarbe.</li>
+                            <li><strong>Voice Assistants:</strong> Typisch weiblich und unterwürfig konzipiert; können sexistisches Verhalten induzieren.</li>
+                            <li><strong>Co-Writing mit Meinung-behafteten LLMs:</strong> Beeinflusst die Meinung der Nutzer (z.B. zu sozialen Medien), je nachdem, welche Meinung das Modell bevorzugt generiert.</li>
+                            <li><strong>GPT-3 Output Bias:</strong> Generiert mehr gewalttätige Inhalte für Prompts über Muslime im Vergleich zu anderen Religionen.</li>
                         </ul>
                     </div>
                     <div class="bg-slate-50 p-4 rounded-lg border border-slate-200">
                         <h4 class="font-bold text-lg text-amber-600">Arten von Bias</h4>
                         <ul class="space-y-2 list-disc list-inside text-slate-600 mt-2">
-                            <li><strong>Biased Output:</strong> Verzerrte Ergebnisse aufgrund der Trainingsdaten (z.B. GPT-3 generiert mehr Gewalt für Muslime als für andere Religionen).</li>
-                            <li><strong>Biased Interaction:</strong> Verzerrte Nutzererfahrung durch das System (z.B. iPhone X Face ID Probleme bei asiatischen Nutzern).</li>
-                            <li><strong>Inducing Bias:</strong> Systeme beeinflussen das Verhalten und die Wahrnehmung der Nutzer (z.B. durch Interaktion mit voreingenommenen Modellen).</li>
+                            <li><strong>Biased Output:</strong> Verzerrte Ergebnisse aufgrund der Trainingsdaten oder Algorithmen.</li>
+                            <li><strong>Biased Interaction:</strong> Verzerrte Nutzererfahrung durch das System, die zu ungleicher Behandlung führt (z.B. iPhone X Face ID Probleme bei asiatischen Nutzern).</li>
+                            <li><strong>Inducing Bias:</strong> Systeme beeinflussen das Verhalten und die Wahrnehmung der Nutzer (z.B. durch Interaktion mit voreingenommenen Modellen oder durch die Art der Darstellung).</li>
                         </ul>
                     </div>
                 </div>
@@ -518,10 +653,15 @@
                 <div class="concept-box bg-slate-100 p-6 rounded-lg">
                     <h3 class="text-2xl font-bold mb-4 text-slate-800">Folgen & Strategien zur Vermeidung</h3>
                     <ul class="space-y-3 list-disc list-inside text-slate-700">
-                        <li><strong>Folgen:</strong> Unfaire Behandlung, Verstärkung gesellschaftlicher Vorurteile, Veränderung von Wahrnehmung/Verhalten.</li>
-                        <li><strong>Strategien zur Vermeidung:</strong> Vielfalt der Nutzer berücksichtigen, Alternativen anbieten, über potenzielle Konsequenzen nachdenken.</li>
-                        <li><strong>Zusammenfassung:</strong> Bias ist ein vielschichtiges Problem. Ethische Überlegungen sind entscheidend für faire und inklusive Systeme.</li>
-                        <li><strong>Kontextuelle Integrität (Helen Nissenbaum):</strong> Datenschutz als kontextgerechter Informationsfluss. Fragen: Wer ist betroffen? Wer sendet? Wer empfängt? Was wird geteilt? Unter welchen Bedingungen? Datenschutznormen sind dynamisch.</li>
+                        <li><strong>Folgen von Bias:</strong> Unfaire Behandlung bestimmter Gruppen, Verstärkung gesellschaftlicher Vorurteile, Veränderung von Wahrnehmung und Verhalten der Nutzer.</li>
+                        <li><strong>Strategien zur Vermeidung:</strong> Vielfalt der Nutzer berücksichtigen (im Design und in den Daten), Alternativen anbieten, über potenzielle Konsequenzen nachdenken.</li>
+                        <li><strong>Kontextuelle Integrität (Helen Nissenbaum):</strong> Ein Datenschutzprinzip, das sich auf den kontextgerechten Informationsfluss konzentriert. Informationen sind dann privat, wenn ihr Fluss den kontextuellen Normen entspricht.
+                            <ul class="ml-6 list-disc list-inside">
+                                <li>**Fragen zur Bewertung des Informationsflusses:** Wer ist die betroffene Person? Wer sendet die Information? Wer empfängt sie? Was wird geteilt? Unter welchen Bedingungen?</li>
+                                <li>Datenschutznormen sind dynamisch und hängen von gesellschaftlichen Werten ab.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Zusammenfassung:</strong> Bias ist ein vielschichtiges Problem mit Daten, Algorithmen und Interaktion als Ursachen. Ethische Überlegungen sind entscheidend, um faire und inklusive Systeme zu entwickeln.</li>
                     </ul>
                 </div>
             </section>
@@ -534,9 +674,9 @@
                 <div class="concept-box bg-slate-100 p-6 rounded-lg mb-6">
                     <h3 class="text-2xl font-bold mb-4 text-slate-800">Einführung & Ziele</h3>
                     <ul class="space-y-3 list-disc list-inside text-slate-700">
-                        <li><strong>Definition:</strong> Softwaretools, die Nutzern Vorschläge für Objekte machen, die für sie nützlich sein könnten (z. B. Produkte, Musik, Nachrichten).</li>
+                        <li><strong>Definition:</strong> Softwaretools und Techniken, die Nutzern personalisierte Vorschläge für Objekte machen, die für sie nützlich sein könnten (z. B. Produkte, Musik, Nachrichten, Filme, Bücher).</li>
                         <li><strong>Anwendungsbeispiele:</strong> Online-Shops (Amazon), Streaming-Plattformen (Netflix, Spotify), soziale Netzwerke.</li>
-                        <li><strong>Ziele:</strong> Verbesserung der Benutzererfahrung, Unterstützung bei Entscheidungen, Erhöhung der Nutzerbindung und Umsätze.</li>
+                        <li><strong>Ziele:</strong> Verbesserung der Benutzererfahrung (durch Relevanz), Unterstützung bei Entscheidungen (bei Informationsüberflutung), Erhöhung der Nutzerbindung und Umsätze.</li>
                     </ul>
                 </div>
 
@@ -544,50 +684,74 @@
                 <div class="grid md:grid-cols-2 gap-6 mb-6">
                     <div class="bg-slate-50 p-4 rounded-lg border border-slate-200">
                         <h4 class="font-bold text-lg text-amber-600">Collaborative Filtering</h4>
-                        <p class="text-slate-600 mt-1">"Andere, die dir ähnlich sind, mochten auch…"</p>
+                        <p class="text-slate-600 mt-1">Basiert auf der Idee: "Andere, die dir ähnlich sind, mochten auch X, daher schlage ich X vor." Nutzt die Ähnlichkeit zwischen Nutzern oder Objekten.</p>
                         <ul class="ml-4 list-disc list-inside text-slate-600 mt-2">
-                            <li><strong>User-based:</strong> Nutzerähnlichkeit berechnen und Items empfehlen, die ähnliche Nutzer mochten.</li>
-                            <li><strong>Item-based (Amazon):</strong> Ähnlichkeit zwischen Items basierend auf Nutzerbewertungen berechnen (keine Semantik nötig). Items empfehlen, die den bereits gemochten Items des Nutzers ähnlich sind.</li>
-                            <li><strong>Vorgehen:</strong> Nutzer bewerten Objekte (explizit/implizit), Ähnlichkeit zwischen Nutzern/Objekten berechnen (z.B. Kosinus, Pearson), Vorhersage neuer Bewertungen.</li>
-                            <li><strong>Vorteile:</strong> Keine Objekt-Metadaten nötig.</li>
+                            <li><strong>User-based Collaborative Filtering:</strong> Berechnet die Ähnlichkeit zwischen Nutzern (z.B. basierend auf gemeinsamen Bewertungen) und empfiehlt Items, die ähnliche Nutzer mochten.</li>
+                            <li><strong>Item-based Collaborative Filtering (z.B. Amazon):</strong> Berechnet die Ähnlichkeit zwischen Items basierend darauf, wie Nutzer diese Items bewertet haben (keine semantische Kenntnis der Items nötig). Empfiehlt Items, die den bereits gemochten Items des Nutzers ähnlich sind.</li>
+                            <li><strong>Vorgehen:</strong>
+                                <ol class="list-decimal list-inside ml-4 mt-2">
+                                    <li>Nutzer bewerten Objekte (explizit, z.B. Sternebewertung; oder implizit, z.B. Kauf, Klick, Wiedergabe).</li>
+                                    <li>Berechnung der Ähnlichkeit zwischen Nutzern (oder zwischen Objekten) mithilfe von Metriken wie Kosinus-Ähnlichkeit, Pearson-Korrelation.</li>
+                                    <li>Vorhersage neuer Bewertungen für den Zielnutzer basierend auf den Bewertungen ähnlicher Nutzer oder der Ähnlichkeit zu bereits gemochten Items.</li>
+                                </ol>
+                            </li>
+                            <li><strong>Vorteile:</strong> Keine Objekt-Metadaten nötig, kann unerwartete Empfehlungen liefern.</li>
                             <li><strong>Herausforderungen:</strong> Cold-start-Problem, Sparse Ratings.</li>
                         </ul>
                     </div>
                     <div class="bg-slate-50 p-4 rounded-lg border border-slate-200">
                         <h4 class="font-bold text-lg text-amber-600">Content-based Filtering</h4>
-                        <p class="text-slate-600 mt-1">Empfehlung auf Basis der Eigenschaften bereits gemochter Objekte.</p>
+                        <p class="text-slate-600 mt-1">Empfehlung auf Basis der Eigenschaften (Merkmale) von Objekten, die der Nutzer bereits gemocht hat ("X ist ähnlich zu dem, was du vorher gemocht hast").</p>
                         <ul class="ml-4 list-disc list-inside text-slate-600 mt-2">
-                            <li><strong>Basis:</strong> Beschreibung der Objekte anhand von Merkmalen (z.B. Genre, Thema, Länge).</li>
-                            <li><strong>Vorgehen:</strong> Nutzerprofil basierend auf Vorlieben bzgl. Merkmale erstellen, Empfehlung von Objekten mit ähnlichen Merkmalen.</li>
-                            <li><strong>Vorteile:</strong> Unabhängig von anderen Nutzern.</li>
-                            <li><strong>Herausforderungen:</strong> Metadaten und Domänenwissen erforderlich.</li>
+                            <li><strong>Basis:</strong> Beschreibung der Objekte anhand von Merkmalen (z.B. Genre, Thema, Länge, Sprache, Zeitrahmen, Hauptcharaktere, Ort, Komplexität). Jedes Item wird als Vektor dieser Merkmale repräsentiert.</li>
+                            <li><strong>Vorgehen:</strong>
+                                <ol class="list-decimal list-inside ml-4 mt-2">
+                                    <li>Erstellung eines Nutzerprofils, das die Vorlieben des Nutzers bezüglich der Item-Merkmale repräsentiert (z.B. ein Vektor der bevorzugten Genres).</li>
+                                    <li>Identifizierung und Empfehlung von Objekten, deren Merkmale dem Nutzerprofil ähneln.</li>
+                                </ol>
+                            </li>
+                            <li><strong>Vorteile:</strong> Unabhängig von anderen Nutzern (keine "kalten" Nutzerprobleme), kann neue oder seltene Items empfehlen, wenn deren Merkmale bekannt sind.</li>
+                            <li><strong>Herausforderungen:</strong> Metadaten und Domänenwissen erforderlich, kann zu "Filterblasen" führen (nur Bekanntes wird empfohlen).</li>
                         </ul>
                     </div>
                 </div>
+                <h3 class="text-2xl font-bold mb-4 text-slate-800 mt-6">Weitere Ansätze & Herausforderungen</h3>
                 <div class="grid md:grid-cols-2 gap-6">
                     <div class="bg-slate-50 p-4 rounded-lg border border-slate-200">
                         <h4 class="font-bold text-lg text-amber-600">Weitere Ansätze</h4>
                         <ul class="space-y-2 list-disc list-inside text-slate-600 mt-2">
-                            <li><strong>Kontextbasiert:</strong> Empfehlung abhängig vom aktuellen Kontext (Ort, Zeit, Situation).</li>
-                            <li><strong>Demographisch:</strong> Empfehlung basierend auf Altersgruppe, Einkommen, Bildung.</li>
-                            <li><strong>Soziale Beziehungen:</strong> Empfehlung basierend auf dem Verhalten von Freunden und Kontakten.</li>
+                            <li><strong>Kontextbasiert:</strong> Empfehlung abhängig vom aktuellen Kontext des Nutzers (Ort, Zeit, Situation).</li>
+                            <li><strong>Demographisch:</strong> Empfehlung basierend auf demographischen Merkmalen des Nutzers (Altersgruppe, Einkommen, Bildung).</li>
+                            <li><strong>Soziale Beziehungen:</strong> Empfehlung basierend auf dem Verhalten von Freunden und Kontakten des Nutzers.</li>
                         </ul>
                     </div>
                     <div class="bg-slate-50 p-4 rounded-lg border border-slate-200">
-                        <h4 class="font-bold text-lg text-amber-600">Herausforderungen</h4>
+                        <h4 class="font-bold text-lg text-amber-600">Zentrale Herausforderungen</h4>
                         <ul class="space-y-2 list-disc list-inside text-slate-600 mt-2">
-                            <li><strong>Cold-start-Problem:</strong> Keine Informationen für neue Nutzer/Objekte oder neue Items. Lösung: Hybridansätze, Initialinteraktionen (Fragebögen), Nutzung von Kontext-/demographischen Daten.</li>
-                            <li><strong>Sparse Ratings Problem:</strong> Wenige Bewertungen pro Nutzer/Objekt erschweren Ähnlichkeitsberechnungen.</li>
-                            <li><strong>Item Ratings erhalten:</strong> Explizit (Fragebögen, Bewertungen) oder Implizit (Nutzung von Items, Teilen, Entfernen von Items).</li>
+                            <li><strong>Cold-start-Problem:</strong> Tritt auf, wenn ein System neu ist (wenig Daten über Nutzer/Items) oder wenn neue Nutzer/Items hinzukommen (keine Informationen über Vorlieben/Bewertungen).
+                                <ul class="ml-6 list-disc list-inside">
+                                    <li>**Nutzer-Cold-Start:** Keine Informationen über den Nutzer.</li>
+                                    <li>**Item-Cold-Start:** Das Item wurde noch nicht bewertet.</li>
+                                    <li>**Lösungen:** Hybridansätze (Kombination von Content-based und Collaborative Filtering), Initialinteraktionen (z.B. Fragebögen bei der Einrichtung wie bei Pinterest), Nutzung von Kontext- oder demographischen Daten.</li>
+                                </ul>
+                            </li>
+                            <li><strong>Sparse Ratings Problem:</strong> Bei großen Plattformen (z.B. Amazon mit Mrd. Produkten und Mio. Nutzern) sind oft nur sehr wenige Bewertungen pro Nutzer/Objekt vorhanden. Dies erschwert die Berechnung von Ähnlichkeiten.</li>
+                            <li><strong>Item Ratings erhalten:</strong>
+                                <ul class="ml-6 list-disc list-inside">
+                                    <li><strong>Explizit:</strong> Direkte Bewertungen durch Nutzer (z.B. Sterne, Likes, Fragebögen).</li>
+                                    <li><strong>Implizit:</strong> Abgeleitet aus dem Nutzerverhalten (z.B. Anschauen eines Films, Hören von Musik, Kaufen eines Buches, Teilen eines Artikels, Entfernen eines Items aus einer Liste).</li>
+                                </ul>
+                            </li>
                         </ul>
                     </div>
                 </div>
                 <div class="concept-box bg-slate-100 p-6 rounded-lg mt-6">
                     <h3 class="text-2xl font-bold mb-4 text-slate-800">Zusammenfassung</h3>
                     <ul class="space-y-2 list-disc list-inside text-slate-700">
-                        <li>Empfehlungssysteme nutzen Ähnlichkeiten zwischen Nutzern oder Objekten.</li>
-                        <li>Collaborative Filtering und Content-based Filtering sind die Hauptansätze.</li>
-                        <li>Ziel: Intelligente Unterstützung und Verbesserung der Nutzererfahrung.</li>
+                        <li>Empfehlungssysteme nutzen Ähnlichkeiten zwischen Nutzern oder Objekten, um personalisierte Vorschläge zu machen.</li>
+                        <li>Collaborative Filtering (nutzer- oder item-basiert) und Content-based Filtering sind die Hauptansätze.</li>
+                        <li>Zentrale Herausforderungen sind das Cold-start-Problem und Sparse Ratings.</li>
+                        <li>Ziel: Intelligente Unterstützung und Verbesserung der Nutzererfahrung sowie Steigerung der Nutzerbindung und Umsätze.</li>
                     </ul>
                 </div>
             </section>
@@ -600,87 +764,106 @@
                 <div class="concept-box bg-slate-100 p-6 rounded-lg mb-6">
                     <h3 class="text-2xl font-bold mb-4 text-slate-800">Einführung & Motivation</h3>
                     <ul class="space-y-3 list-disc list-inside text-slate-700">
-                        <li><strong>Motivation:</strong> ML-Algorithmen liefern gute Ergebnisse, sind aber oft schwer verständlich und daher schwer zu vertrauen (Black-Box-Charakter). Dies verlangsamt den Einsatz in kritischen Bereichen (Medizin, autonomes Fahren).</li>
-                        <li><strong>Black-Box-Problem:</strong> Komplexe Modelle (insbesondere Deep Learning wie CNNs, RNNs) sind schwer nachvollziehbar, im Gegensatz zu einfacheren Modellen (Lineare Modelle, Entscheidungsbäume).</li>
-                        <li><strong>Problem:</strong> Menschen können in Konversationen nach Gründen fragen, bei KI ist das oft nicht möglich. Vertrauen basiert auf Verständnis.</li>
-                        <li><strong>Lösung:</strong> KI-Algorithmen durch Erklärungen verständlich machen.</li>
-                        <li><strong>Zunehmender Bedarf:</strong> Steigendes Interesse an Erklärbarer KI.</li>
+                        <li><strong>Motivation:</strong> Machine Learning (ML)-Algorithmen liefern hervorragende Ergebnisse, sind aber oft schwer verständlich und daher schwer zu vertrauen (Black-Box-Charakter). Dies verlangsamt ihren Einsatz in kritischen Bereichen wie medizinischen Anwendungen, autonomem Fahren oder algorithmischem Handel.</li>
+                        <li><strong>Black-Box-Problem:</strong> Beschreibt die mangelnde Transparenz komplexer Modelle, insbesondere von Deep Learning (z.B. Convolutional Neural Networks - CNNs, Recurrent Neural Networks - RNNs), die schwer nachvollziehbar sind, im Gegensatz zu einfacheren, intrinsisch erklärbaren Modellen (z.B. Lineare Modelle, Entscheidungsbäume).
+                            <ul class="ml-6 list-disc list-inside">
+                                <li><strong>Problem:</strong> Menschen können in natürlichen Konversationen nach Gründen fragen. Bei KI-Entscheidungen ist das oft nicht möglich, was das Vertrauen mindert.</li>
+                                <li><strong>Lösung:</strong> KI-Algorithmen durch Erklärungen verständlich machen.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Zunehmender Bedarf:</strong> Es gibt einen steigenden Bedarf und Interesse an Erklärbarer KI, getrieben durch ethische, rechtliche und praktische Anforderungen.</li>
                     </ul>
                 </div>
 
-                <h3 class="text-2xl font-bold mb-4 text-slate-800">Wichtige Konzepte & Ziele von XAI</h3>
+                <h3 class="2xl font-bold mb-4 text-slate-800">Wichtige Konzepte & Ziele von XAI</h3>
                 <div class="grid md:grid-cols-2 gap-6 mb-6">
                     <div class="bg-slate-50 p-4 rounded-lg border border-slate-200">
                         <h4 class="font-bold text-lg text-amber-600">Konzepte</h4>
                         <ul class="space-y-2 list-disc list-inside text-slate-600 mt-2">
-                            <li><strong>Explainability/Interpretability/Transparency:</strong> Grad, in dem ein Mensch die Entscheidung eines Modells versteht (oft synonym verwendet).</li>
-                            <li><strong>Human-centered AI (HCAI):</strong> KI, die menschliche Selbstwirksamkeit, Kreativität, Verantwortung und soziale Teilhabe unterstützt (Shneiderman, 2020). Menschen sollen im Mittelpunkt der KI stehen.</li>
+                            <li><strong>Explainability/Interpretability/Transparency:</strong> Grad, in dem ein Mensch die Entscheidung eines Modells oder dessen Funktionsweise verstehen kann (oft synonym verwendet).</li>
+                            <li><strong>Human-centered AI (HCAI):</strong> Ein Designansatz für KI, der den Menschen in den Mittelpunkt stellt. Ziel ist es, KI-Systeme zu entwickeln, die menschliche Selbstwirksamkeit unterstützen, Kreativität fördern, Verantwortung klären und soziale Teilhabe erleichtern (Shneiderman, 2020).</li>
                         </ul>
                     </div>
                     <div class="bg-slate-50 p-4 rounded-lg border border-slate-200">
                         <h4 class="font-bold text-lg text-amber-600">Ziele von XAI</h4>
                         <ul class="space-y-2 list-disc list-inside text-slate-600 mt-2">
-                            <li>Vertrauen und Überprüfbarkeit fördern.</li>
-                            <li>Neue Einsichten ermöglichen (z.B. was das Modell wirklich gelernt hat).</li>
-                            <li>Gesetzliche Anforderungen erfüllen (z.B. DSGVO Recht auf Erklärung).</li>
-                            <li>„Clever Hans“-Effekte erkennen und vermeiden (Modell nutzt irrelevante Muster für Entscheidungen).</li>
+                            <li><strong>Vertrauen und Überprüfbarkeit fördern:</strong> Nutzer und Entwickler können der KI mehr vertrauen, wenn sie verstehen, wie Entscheidungen getroffen werden.</li>
+                            <li><strong>Neue Einsichten ermöglichen:</strong> Erklärungen können aufzeigen, was das Modell wirklich gelernt hat und wo es möglicherweise Fehler macht.</li>
+                            <li><strong>Gesetzliche Anforderungen erfüllen:</strong> Z.B. das "Recht auf Erklärung" bei automatisierten Entscheidungen gemäß DSGVO.</li>
+                            <li><strong>„Clever Hans“-Effekte erkennen und vermeiden:</strong> Aufdecken, wenn ein Modell Entscheidungen auf irrelevanten Mustern oder Korrelationen basiert, anstatt die eigentliche Aufgabe zu lösen.</li>
                         </ul>
                     </div>
                 </div>
 
-                <h3 class="text-2xl font-bold mb-4 text-slate-800">Herausforderungen & Methoden</h3>
+                <h3 class="2xl font-bold mb-4 text-slate-800">Herausforderungen & Methoden</h3>
                 <div class="grid md:grid-cols-2 gap-6 mb-6">
                     <div class="bg-slate-50 p-4 rounded-lg border border-slate-200">
                         <h4 class="font-bold text-lg text-amber-600">Exemplarische Herausforderungen von KI</h4>
                         <ul class="space-y-2 list-disc list-inside text-slate-600 mt-2">
-                            <li><strong>Hohe Komplexität und Energiebedarf:</strong> Erschwert Einsatz in ressourcenbeschränkten Umgebungen.</li>
-                            <li><strong>Mangelnde Transparenz und Erklärbarkeit:</strong> Reduziert Vertrauen und Nachvollziehbarkeit.</li>
-                            <li><strong>Geringe Robustheit gegenüber adversarial attacks:</strong> Angreifbarkeit durch gezielte Störungen (z.B. ein Pixel kann Klassifikation ändern).</li>
+                            <li><strong>Hohe Komplexität und Energiebedarf:</strong> Moderne KI-Modelle sind sehr komplex und rechenintensiv, was ihren Einsatz in ressourcenbeschränkten Umgebungen erschwert und die Erklärbarkeit mindert.</li>
+                            <li><strong>Mangelnde Transparenz und Erklärbarkeit:</strong> Führt zu geringerem Vertrauen und erschwerter Nachvollziehbarkeit von Entscheidungen.</li>
+                            <li><strong>Geringe Robustheit gegenüber adversarial attacks:</strong> KI-Modelle können durch gezielte, oft minimale Störungen in den Eingabedaten (z.B. ein Pixel) getäuscht werden, was ein erhebliches Sicherheitsrisiko darstellt.</li>
                         </ul>
                     </div>
                     <div class="bg-slate-50 p-4 rounded-lg border border-slate-200">
-                        <h4 class="font-bold text-lg text-amber-600">Methoden zur Erklärung</h4>
+                        <h4 class="font-bold text-lg text-amber-600">Methoden zur Erklärung (Interpretability Methods)</h4>
                         <ul class="space-y-2 list-disc list-inside text-slate-600 mt-2">
-                            <li><strong>Surrogate-Modelle:</strong> Einfachere Modelle, die das Verhalten eines komplexen Modells annähern und erklärbar sind.</li>
-                            <li><strong>Lokale Störungen:</strong> Veränderung von Eingaben (z.B. LIME) zur Beobachtung von Effekten auf die Vorhersage.</li>
-                            <li><strong>Propagationsbasierte Ansätze:</strong> Nutzung der Modellstruktur zur Erklärung.</li>
-                            <li><strong>Meta-Erklärungen:</strong> Erklärungen über die Erklärungsmethoden selbst.</li>
+                            <li><strong>Surrogate-Modelle:</strong> Einfachere, intrinsisch erklärbare Modelle (z.B. Entscheidungsbäume), die das Verhalten eines komplexen Black-Box-Modells annähern und dessen Vorhersagen erklären.</li>
+                            <li><strong>Lokale Störungen (Local Perturbations):</strong> Veränderung kleiner Teile der Eingabe, um die Auswirkungen auf die Vorhersage zu beobachten.
+                                <ul class="ml-6 list-disc list-inside">
+                                    <li><strong>LIME (Local Interpretable Model-agnostic Explanations):</strong> Eine populäre Methode, die lokale, erklärbare Vorhersagen liefert, indem sie ein einfaches Modell um eine einzelne Vorhersage herum trainiert.</li>
+                                </ul>
+                            </li>
+                            <li><strong>Propagationsbasierte Ansätze:</strong> Nutzen die interne Struktur des Modells (z.B. Aktivierungen von Neuronen, Gewichte) um zu erklären, wie eine Eingabe zu einer Ausgabe geführt hat.</li>
+                            <li><strong>Meta-Erklärungen:</strong> Erklärungen, die sich auf die Erklärungsmethoden selbst beziehen oder deren Grenzen aufzeigen.</li>
                         </ul>
                     </div>
                 </div>
 
-                <h3 class="text-2xl font-bold mb-4 text-slate-800">Facetten einer Erklärung & Beispiele</h3>
+                <h3 class="2xl font-bold mb-4 text-slate-800">Facetten einer Erklärung & Beispiele</h3>
                 <div class="grid md:grid-cols-2 gap-6">
                     <div class="bg-slate-50 p-4 rounded-lg border border-slate-200">
                         <h4 class="font-bold text-lg text-amber-600">Facetten einer Erklärung</h4>
                         <ul class="space-y-2 list-disc list-inside text-slate-600 mt-2">
-                            <li><strong>Empfänger:</strong> Für wen ist die Erklärung gedacht (Experte, Laie)?</li>
-                            <li><strong>Informationsinhalt:</strong> Was wird erklärt (gelernte Repräsentationen, einzelne Vorhersagen, Modellverhalten, repräsentative Beispiele)?</li>
-                            <li><strong>Rolle:</strong> Warum wird erklärt (Vertrauen, Debugging, neue Einsichten)?</li>
+                            <li><strong>Empfänger:</strong> Für wen ist die Erklärung gedacht (z.B. Experte, Laie, Regulator)? Die Komplexität und Detailtiefe der Erklärung muss angepasst werden.</li>
+                            <li><strong>Informationsinhalt:</strong> Was genau wird erklärt?
+                                <ul class="ml-6 list-disc list-inside">
+                                    <li>Gelernte Repräsentationen (z.B. was Neuronen in einer Schicht erkennen).</li>
+                                    <li>Einzelne Vorhersagen (warum wurde diese spezifische Entscheidung getroffen?).</li>
+                                    <li>Modellverhalten (wie verhält sich das Modell im Allgemeinen?).</li>
+                                    <li>Repräsentative Beispiele (Beispiele, die typisches Modellverhalten illustrieren).</li>
+                                </ul>
+                            </li>
+                            <li><strong>Rolle:</strong> Warum wird eine Erklärung benötigt (z.B. Vertrauen aufbauen, Fehler beheben/debuggen, neue Einsichten gewinnen)?</li>
                         </ul>
                         <h4 class="font-bold text-lg text-amber-600 mt-4">Adversarial Attacks</h4>
                         <ul class="space-y-2 list-disc list-inside text-slate-600 mt-2">
-                            <li>Täuschen ML-Algorithmen mit manipulierten Eingaben.</li>
-                            <li>Eine winzige Änderung (z.B. ein Pixel) kann ausreichen (One-Pixel Attack).</li>
-                            <li>Erklärbarkeit hilft, solche Angriffe zu verstehen und zu verhindern.</li>
+                            <li><strong>Definition:</strong> Gezielte Manipulation von Eingabedaten, um ML-Algorithmen zu täuschen und Fehlklassifikationen zu provozieren.</li>
+                            <li>Eine winzige, oft für Menschen kaum wahrnehmbare Änderung (z.B. ein Pixel) kann ausreichen, um das Modell zu täuschen (One-Pixel Attack).</li>
+                            <li>**Beispiele:** Panda wird als Gibbon klassifiziert durch minimales Rauschen; Stoppschilder werden durch Aufkleber falsch erkannt; Textklassifikatoren werden durch Zeichenänderungen getäuscht.</li>
+                            <li>Erklärbarkeit von KI trägt dazu bei, solche Angriffe besser zu verstehen und Abwehrmechanismen zu entwickeln.</li>
                         </ul>
                     </div>
                     <div class="bg-slate-50 p-4 rounded-lg border border-slate-200">
                         <h4 class="font-bold text-lg text-amber-600">Beispiele für XAI & Probleme</h4>
                         <ul class="space-y-2 list-disc list-inside text-slate-600 mt-2">
-                            <li>AlphaGo: Unerwartete, schwer erklärbare Züge.</li>
-                            <li>Clever Hans: Modell basiert Entscheidungen auf irrelevanten Mustern (z.B. Hintergrund statt Objekt).</li>
-                            <li><strong>LIME:</strong> Methode für lokale erklärbare Vorhersagen (zeigt, welche Teile der Eingabe für eine einzelne Vorhersage wichtig waren).</li>
-                            <li>Visualisierungen gelernter Repräsentationen und einzelner Vorhersagen (Heat Maps).</li>
+                            <li><strong>AlphaGo:</strong> Traf unerwartete, schwer erklärbare Züge, die menschliche Go-Spieler nicht verstanden.</li>
+                            <li><strong>Clever Hans:</strong> Ein Pferd, das scheinbar rechnen konnte, aber tatsächlich auf die unbewussten Signale seines Trainers reagierte. Bei KI tritt der "Clever Hans"-Effekt auf, wenn das Modell Entscheidungen auf irrelevanten Mustern (z.B. Hintergrund eines Bildes statt des eigentlichen Objekts) basiert.</li>
+                            <li><strong>Visualisierungen:</strong>
+                                <ul class="ml-6 list-disc list-inside">
+                                    <li>Gelernter Repräsentationen (z.B. Neuronale Netzwerke im TensorFlow Playground visualisieren, was Neuronen lernen).</li>
+                                    <li>Einzelner Vorhersagen (Heat Maps zeigen, welche Bereiche eines Bildes für eine Klassifikation am wichtigsten waren).</li>
+                                </ul>
+                            </li>
                         </ul>
                     </div>
                 </div>
                 <div class="concept-box bg-slate-100 p-6 rounded-lg mt-6">
                     <h3 class="text-2xl font-bold mb-4 text-slate-800">Zusammenfassung</h3>
                     <ul class="space-y-2 list-disc list-inside text-slate-700">
-                        <li>XAI adressiert die Probleme von Komplexität, Transparenz und Robustheit von KI-Modellen.</li>
-                        <li>Erklärbarkeit fördert Vertrauen, ermöglicht Einsicht und erfüllt regulatorische Anforderungen.</li>
-                    <li>Wichtige Methoden: Surrogates, lokale Erklärungen, Visualisierungen.</li>
+                        <li>XAI adressiert die Probleme von Komplexität, mangelnder Transparenz und geringer Robustheit von KI-Modellen.</li>
+                        <li>Erklärbarkeit fördert Vertrauen, ermöglicht Einsicht in das Modellverhalten und erfüllt regulatorische Anforderungen.</li>
+                        <li>Wichtige Methoden umfassen Surrogate-Modelle, lokale Erklärungen (wie LIME) und verschiedene Visualisierungstechniken.</li>
                     </ul>
                 </div>
             </section>
@@ -693,58 +876,79 @@
                 <div class="concept-box bg-slate-100 p-6 rounded-lg mb-6">
                     <h3 class="text-2xl font-bold mb-4 text-slate-800">Einführung & Kontext in HCI</h3>
                     <ul class="space-y-3 list-disc list-inside text-slate-700">
-                        <li><strong>Motivation:</strong> Systeme sollen sich an Benutzer, deren Umgebung und aktuelle Kontexte anpassen, um nützlicher und weniger störend zu sein.</li>
-                        <li><strong>Kontext in HCI:</strong> Informationen, die für die Interaktion zwischen Mensch und Computer relevant sind.</li>
-                        <li><strong>Mark Weiser (Ubiquitous Computing):</strong> Computer allgegenwärtig, aber „unsichtbar“ – Kontext ist hier entscheidend.</li>
+                        <li><strong>Motivation:</strong> Systeme sollen sich dynamisch an Benutzer, deren Umgebung und aktuelle Kontexte anpassen, um nützlicher und weniger störend zu sein.</li>
+                        <li><strong>Kontext in HCI:</strong> Informationen, die für die Interaktion zwischen Mensch und Computer relevant sind. Dies umfasst nicht nur den Nutzer selbst, sondern auch seine physische, soziale und kulturelle Umgebung.</li>
+                        <li><strong>Mark Weiser (Ubiquitous Computing):</strong> Prägte die Vision des Ubiquitous Computing, bei dem Computer allgegenwärtig, aber „unsichtbar“ in den Alltag integriert sind. Kontext ist hier entscheidend, da die Systeme die Umgebung verstehen müssen, um intelligent zu agieren.</li>
                     </ul>
                 </div>
 
-                <h3 class="text-2xl font-bold mb-4 text-slate-800">Adaptive Systeme & Der Mensch als Kontext</h3>
+                <h3 class="2xl font-bold mb-4 text-slate-800">Adaptive Systeme & Der Mensch als Kontext</h3>
                 <div class="grid md:grid-cols-2 gap-6 mb-6">
                     <div class="bg-slate-50 p-4 rounded-lg border border-slate-200">
                         <h4 class="font-bold text-lg text-amber-600">Adaptive Systeme</h4>
-                        <ul class="space-y-2 list-disc list-inside text-slate-600 mt-2">
-                            <li>Passen sich an Nutzerpräferenzen und Kontexte an.</li>
-                            <li>Beispiel: Recommender Systems als adaptive Systeme, die auf Verhalten und Kontext reagieren.</li>
-                            <li>Strategien (für Menüs): Nonadaptive, Frequency-based, Resizing (morphing), Smart menus, Split menus with replication, Highlighting, Ephemeral.</li>
+                        <p class="text-slate-600 mt-1">Systeme, die sich an Nutzerpräferenzen, Verhaltensweisen und Kontexte anpassen, um die Effizienz und Benutzerfreundlichkeit zu verbessern.</p>
+                        <ul class="ml-4 list-disc list-inside text-slate-600 mt-2">
+                            <li><strong>Beispiel:</strong> Recommender Systems sind adaptive Systeme, da sie auf Basis des Nutzerverhaltens und Kontexts personalisierte Empfehlungen generieren.</li>
+                            <li><strong>Strategien für adaptive Benutzeroberflächen (z.B. für Menüs):</strong>
+                                <ul class="ml-6 list-disc list-inside">
+                                    <li><strong>Nonadaptive:</strong> Statische Menüs.</li>
+                                    <li><strong>Frequency-based:</strong> Häufig genutzte Elemente rücken nach oben.</li>
+                                    <li><strong>Resizing (morphing):</strong> Elemente ändern ihre Größe dynamisch.</li>
+                                    <li><strong>Smart menus:</strong> Zeigen kontextrelevante Optionen an.</li>
+                                    <li><strong>Split menus with replication:</strong> Teilen Menüs auf und duplizieren Elemente.</li>
+                                    <li><strong>Highlighting:</strong> Heben relevante Optionen hervor.</li>
+                                    <li><strong>Ephemeral:</strong> Optionen erscheinen und verschwinden je nach Kontext.</li>
+                                </ul>
+                            </li>
                         </ul>
                     </div>
                     <div class="bg-slate-50 p-4 rounded-lg border border-slate-200">
                         <h4 class="font-bold text-lg text-amber-600">Der Mensch als Kontext</h4>
+                        <p class="text-slate-600 mt-1">Informationen über den Nutzer selbst (physische Haltung, Absicht) können als Kontext dienen, um die Interaktion zu verbessern.</p>
                         <ul class="space-y-2 list-disc list-inside text-slate-600 mt-2">
-                            <li><strong>Palm Detection:</strong> Eingaben ablehnen, wenn Handfläche aufliegt.</li>
-                            <li><strong>Finger-/Griff-Erkennung:</strong> Modelle verbessern oder anpassen basierend auf der Art, wie Finger/Hände interagieren.</li>
-                            <li><strong>Orientierung der Finger:</strong> Erkennung von Absicht.</li>
-                            <li><strong>Kontext in der Interaktion:</strong> Kontext kann durch Experimente und Verhaltensbeobachtung erfasst werden. Komplexe Szenarien durch kontextbezogene Verhaltenskodierung analysieren.</li>
+                            <li><strong>Palm Detection:</strong> Erkennung der aufliegenden Handfläche auf einem Touchscreen, um unbeabsichtigte Eingaben abzulehnen.</li>
+                            <li><strong>Finger-/Griff-Erkennung:</strong> Modelle können das Verhalten oder die Absicht des Nutzers besser verstehen, basierend auf der Art, wie Finger oder Hände interagieren oder ein Objekt greifen.</li>
+                            <li><strong>Orientierung der Finger:</strong> Kann genutzt werden, um die Absicht des Nutzers zu erkennen (z.B. Zeigegeste).</li>
+                            <li><strong>Kontext in der Interaktion:</strong> Kontext kann durch Experimente und Verhaltensbeobachtung erfasst werden. Komplexe Szenarien können durch kontextbezogene Verhaltenskodierung analysiert werden, um ein tiefes Verständnis der Interaktion zu gewinnen.</li>
                         </ul>
                     </div>
                 </div>
 
-                <h3 class="text-2xl font-bold mb-4 text-slate-800">Kontextuelle Integrität & Human Factors</h3>
+                <h3 class="2xl font-bold mb-4 text-slate-800">Kontextuelle Integrität & Human Factors</h3>
                 <div class="grid md:grid-cols-2 gap-6">
                     <div class="bg-slate-50 p-4 rounded-lg border border-slate-200">
                         <h4 class="font-bold text-lg text-amber-600">Kontextuelle Integrität (Ethik)</h4>
-                        <ul class="space-y-2 list-disc list-inside text-slate-600 mt-2">
-                            <li><strong>Helen Nissenbaum:</strong> Datenschutz als kontextgerechter Informationsfluss.</li>
-                            <li>Fragen: Wer ist die betroffene Person? Wer sendet die Information? Wer empfängt sie? Was wird geteilt? Unter welchen Bedingungen?</li>
+                        <p class="text-slate-600 mt-1">Ein Datenschutzprinzip nach Helen Nissenbaum, das sich auf den kontextgerechten Informationsfluss konzentriert. Privatsphäre wird gewährleistet, wenn Informationsflüsse den kontextuellen Normen entsprechen.</p>
+                        <ul class="ml-4 list-disc list-inside text-slate-600 mt-2">
+                            <li><strong>Fragen zur Bewertung eines Informationsflusses:</strong>
+                                <ul class="ml-6 list-disc list-inside">
+                                    <li>Wer ist die betroffene Person?</li>
+                                    <li>Wer sendet die Information?</li>
+                                    <li>Wer empfängt sie?</li>
+                                    <li>Was wird geteilt?</li>
+                                    <li>Unter welchen Bedingungen?</li>
+                                </ul>
+                            </li>
                             <li>Datenschutznormen sind dynamisch und hängen von gesellschaftlichen Werten ab.</li>
                         </ul>
                     </div>
                     <div class="bg-slate-50 p-4 rounded-lg border border-slate-200">
                         <h4 class="font-bold text-lg text-amber-600">Human Factors / Ergonomie</h4>
-                        <ul class="space-y-2 list-disc list-inside text-slate-600 mt-2">
-                            <li>Interaktion wird von menschlichen Einschränkungen (Aufmerksamkeit, Stress) und situativen Kontexten (sozial, kulturell, umweltbezogen) geprägt.</li>
-                            <li>Beispiel: Three Mile Island – Kontextuelle Fehler bei Reaktorunfall (Missverständnisse wegen irreführender Indikatoren, Wartungsblockaden, Überlastung durch viele gleichzeitige Alarme).</li>
+                        <p class="text-slate-600 mt-1">Die Interaktion zwischen Mensch und Computer wird von menschlichen Einschränkungen und Fähigkeiten sowie situativen Kontexten geprägt.</p>
+                        <ul class="ml-4 list-disc list-inside text-slate-600 mt-2">
+                            <li><strong>Menschliche Einschränkungen:</strong> Aufmerksamkeit, Gedächtnis, Stress.</li>
+                            <li><strong>Situative Kontexte:</strong> Umweltbezogen (Licht, Lärm), sozial (Anwesenheit anderer), kulturell.</li>
+                            <li><strong>Beispiel: Three Mile Island:</strong> Ein Reaktorunfall, der durch eine Kette kontextueller Fehler verschärft wurde. Dazu gehörten Missverständnisse wegen irreführender Indikatoren, Wartungsblockaden (die ein Sicherheitssystem außer Kraft setzten) und eine Überlastung der Operatoren durch viele gleichzeitige Alarme, die eine klare Situationserfassung erschwerten.</li>
                         </ul>
                     </div>
                 </div>
                 <div class="concept-box bg-slate-100 p-6 rounded-lg mt-6">
                     <h3 class="text-2xl font-bold mb-4 text-slate-800">Zusammenfassung</h3>
                     <ul class="space-y-2 list-disc list-inside text-slate-700">
-                        <li>Kontexte erfassen und verstehen ist entscheidend für sichere und nützliche Systeme.</li>
-                        <li>Adaptive Systeme reagieren dynamisch auf Nutzer und Umgebung.</li>
-                        <li>Ethik und Datenschutz müssen kontextsensitiv gestaltet sein.</li>
-                        <li>Menschliche Faktoren und situative Einflüsse immer mit berücksichtigen.</li>
+                        <li>Kontexte erfassen und verstehen ist entscheidend für die Entwicklung sicherer und nützlicher Systeme.</li>
+                        <li>Adaptive Systeme reagieren dynamisch auf Nutzer und Umgebung, um die Interaktion zu optimieren.</li>
+                        <li>Ethische Überlegungen und Datenschutz müssen kontextsensitiv gestaltet sein.</li>
+                        <li>Menschliche Faktoren und situative Einflüsse müssen immer mit berücksichtigt werden, um effektive und komfortable Benutzerschnittstellen zu schaffen.</li>
                     </ul>
                 </div>
             </section>
